@@ -1,0 +1,61 @@
+{% extends 'pleniapp/base.html' %}
+
+{% block content %}
+  <div class="container" style="text-align:center;">
+    <div class="row">
+      <div class="col-sm-4">
+        <h3 >Basica 1</h3>
+      </div>
+      <div class="col-sm-4">
+        <h3>Basica 2</h3>
+      </div>
+      <div class="col-sm-4">
+        <h3>Basica 3</h3>
+      </div>
+    </div>
+  </div> <br>
+
+  <div class="container" style="text-align:center;">
+    <div class="row">
+      <div class="col-sm-4">
+        <img src="..." alt="..." class="img-thumbnail">
+      </div>
+      <div class="col-sm-4">
+        <img src="..." alt="..." class="img-thumbnail">
+      </div>
+      <div class="col-sm-4">
+        <img src="..." alt="..." class="img-thumbnail">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+
+      </div>
+      <div class="col-sm-4">
+
+      </div>
+      <div class="col-sm-4">
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+
+      </div>
+      <div class="col-sm-4">
+
+      </div>
+      <div class="col-sm-4">
+
+      </div>
+    </div>
+  </div> <br>
+
+  <h3>{{title}}</h3>
+
+  <ul class="list-group">
+    {% for thread in threads %}
+      <li class="list-group-item"><a href="{% url 'details' id=thread.id %}">{{thread.title}}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}
