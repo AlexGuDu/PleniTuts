@@ -1,3 +1,46 @@
-h3{
-  color: red;
+.jumbotron{
+  width: 100%;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}
+
+.img-thumbnail{
+  height: 90%;
+  width: 80%;
+  padding: 1rem;
+  border-radius: 2rem;
+  animation: desaturate 0.75s;
+  filter: grayscale(65%);
+
+}
+
+.img-thumbnail:hover{
+  cursor: pointer;
+  animation: saturate 0.35s;
+  filter: grayscale(0%);
+}
+.btn-lg{
+  width: 100%;
+  border-radius: 1rem;
+}
+
+@keyframes saturate{
+  0% {
+    filter: grayscale(65%);
+
+  }
+
+  100% {
+    filter: grayscale(0%);
+
+  }
+}
+@keyframes desaturate{
+  0% {
+    filter: grayscale(0%);
+  }
+
+  100% {
+    filter: grayscale(65%);
+  }
 }

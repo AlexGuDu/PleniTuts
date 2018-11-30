@@ -1,16 +1,26 @@
 {% extends 'pleniapp/base.html' %}
+{% load staticfiles %}
 
 {% block content %}
+<div class="jumbotron jumbotron-fluid text-center bg-default">
+      <div class="container">
+        <h1>Adultos en Plenituts</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Requescate en Pace.</p>
+        <a href="#" class="btn btn-dark ">Comenzar</a>
+      </div>
+</div>
+
   <div class="container" style="text-align:center;">
     <div class="row">
       <div class="col-sm-4">
-        <h3 >Basica 1</h3>
+        <button type="button" class="btn btn-lg btn-outline-info">Basica 1</button>
+
       </div>
       <div class="col-sm-4">
-        <h3>Basica 2</h3>
+        <button type="button" class="btn btn-lg btn-outline-info">Basica 2</button>
       </div>
       <div class="col-sm-4">
-        <h3>Basica 3</h3>
+        <button type="button" class="btn btn-lg btn-outline-info">Basica 3</button>
       </div>
     </div>
   </div> <br>
@@ -18,35 +28,35 @@
   <div class="container" style="text-align:center;">
     <div class="row">
       <div class="col-sm-4">
-        <img src="..." alt="..." class="img-thumbnail">
+        <img src="{% static 'img/gmail.png' %}" class="img-thumbnail">
       </div>
       <div class="col-sm-4">
-        <img src="..." alt="..." class="img-thumbnail">
+        <img src="{% static 'img/chrome.png' %}" class="img-thumbnail">
       </div>
       <div class="col-sm-4">
-        <img src="..." alt="..." class="img-thumbnail">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-4">
-
-      </div>
-      <div class="col-sm-4">
-
-      </div>
-      <div class="col-sm-4">
-
+        <img src="{% static 'img/win.png' %}" class="img-thumbnail">
       </div>
     </div>
     <div class="row">
       <div class="col-sm-4">
-
+        <img src="{% static 'img/fb.png' %}" class="img-thumbnail">
       </div>
       <div class="col-sm-4">
-
+        <img src="{% static 'img/yt.png' %}" class="img-thumbnail">
       </div>
       <div class="col-sm-4">
-
+        <img src="{% static 'img/office.png' %}" class="img-thumbnail">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <img src="{% static 'img/hw.png' %}" class="img-thumbnail">
+      </div>
+      <div class="col-sm-4">
+        <img src="{% static 'img/solitary.png' %}" class="img-thumbnail">
+      </div>
+      <div class="col-sm-4">
+        <img src="{% static 'img/paint.png' %}" class="img-thumbnail">
       </div>
     </div>
   </div> <br>
