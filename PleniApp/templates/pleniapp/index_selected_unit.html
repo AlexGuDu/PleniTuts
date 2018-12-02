@@ -1,0 +1,22 @@
+{% extends 'pleniapp/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+  <div class="jumbotron jumbotron-fluid text-center bg-default">
+        <div class="container">
+          <h1>Adultos en Plenituts</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Requescate en Pace.</p>
+          <a href="#" class="btn btn-dark ">Comenzar</a>
+        </div>
+  </div>
+
+{% include 'pleniapp/__unit_group.html' %}
+
+  <h3>{{title}}</h3>
+
+  <ul class="list-group">
+    {% for lecture in lectures %}
+      <li class="list-group-item"><a href="{% url 'details' id=lecture.id %}">{{lecture.title}}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

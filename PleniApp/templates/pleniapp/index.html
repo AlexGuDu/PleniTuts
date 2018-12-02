@@ -10,20 +10,7 @@
         </div>
   </div>
 
-  <div class="container" style="text-align:center;">
-    <div class="row">
-      <div class="col-sm-4">
-        <button type="button" class="btn btn-lg btn-outline-info">Basica 1</button>
-
-      </div>
-      <div class="col-sm-4">
-        <button type="button" class="btn btn-lg btn-outline-info">Basica 2</button>
-      </div>
-      <div class="col-sm-4">
-        <button type="button" class="btn btn-lg btn-outline-info">Basica 3</button>
-      </div>
-    </div>
-  </div> <br>
+{% include 'pleniapp/__unit_group.html' %}
 
   <div class="container" style="text-align:center;">
     <div class="row">
@@ -64,8 +51,9 @@
   <h3>{{title}}</h3>
 
   <ul class="list-group">
-    {% for thread in threads %}
-      <li class="list-group-item"><a href="{% url 'details' id=thread.id %}">{{thread.title}}</a></li>
+    {% for lecture in lectures %}
+      <li class="list-group-item"><a href="{% url 'details' id=lecture.id %}">{{lecture.title}}</a></li>
     {% endfor %}
   </ul>
+
 {% endblock %}

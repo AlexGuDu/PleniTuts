@@ -1,0 +1,28 @@
+<div class="container" style="text-align:center;">
+  <div class="row">
+    <div class="col-sm-4">
+      <button id="btn_unit_1" type="button" class="btn btn-lg btn-outline-info">Basica 1</button>
+
+    </div>
+    <div class="col-sm-4">
+      <button id="btn_unit_2" type="button" class="btn btn-lg btn-outline-info">Basica 2</button>
+    </div>
+    <div class="col-sm-4">
+      <button id="btn_unit_3" type="button" class="btn btn-lg btn-outline-info">Basica 3</button>
+    </div>
+  </div>
+</div> <br>
+
+{% load staticfiles %}
+<script type="text/javascript">
+  document.getElementById('btn_unit_1').addEventListener('click', function(){
+    window.location.href = "{% url 'index_selected_unit' id=1 %}";
+  });
+  document.getElementById('btn_unit_2').addEventListener('click', function(){
+    window.location.href = "{% url 'index_selected_unit' id=2 %}";
+  });
+  document.getElementById('btn_unit_3').addEventListener('click', function(){
+    window.location.href = "{% url 'index_selected_unit' id=3 %}";
+  });
+
+</script>
