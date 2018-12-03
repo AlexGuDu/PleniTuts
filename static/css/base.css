@@ -5,6 +5,15 @@
    overflow-y: scroll;
  }
 
+ .card{
+   height: 20rem;
+ }
+
+ #btn_enter_lecture{
+   position: absolute;
+   bottom: 1.5rem;
+ }
+
 .jumbotron{
   width: 100%;
   border-bottom-left-radius: 2rem;

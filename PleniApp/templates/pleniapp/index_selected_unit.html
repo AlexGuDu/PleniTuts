@@ -2,68 +2,45 @@
 {% load staticfiles %}
 
 {% block content %}
-<div class="jumbotron jumbotron-fluid text-center bg-default">
-      <div class="container">
-        <h1>Adultos en Plenituts</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Requescate en Pace.</p>
-        <a href="#" class="btn btn-dark ">Comenzar</a>
-      </div>
-</div>
-
-{% include 'pleniapp/__unit_group.html' %}
-
-<div class="container-fluid" >
-  <div class="row">
-    <div class="col-sm-9">
-      <div class="card">
-        <div class="card-header">
-          Featured
+  <div class="jumbotron jumbotron-fluid text-center bg-default">
+        <div class="container">
+          <h1>Adultos en Plenituts</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Requescate en Pace.</p>
+          <a href="#" class="btn btn-dark ">Comenzar</a>
         </div>
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <nav class="col-sm-3" id="scrolltest" >
-      <ul class="nav nav-pills flex-column">
-
-        {% for lecture in lectures %}
-
-        <li class="nav-item">
-          <a class="nav-link cleanup-c" id="{{ lecture.navlinkid }}" href>{{lecture.title}}</a>
-        </li>
-
-        {% endfor %}
-
-      </ul>
-    </nav>
   </div>
-</div>
 
-<script type="text/javascript">
-  window.onload= function(){
-    {{navlinkid_list.0}}.classList.add("active");
+  {% include 'pleniapp/__unit_group.html' %}
 
-  }
-  var all_navlinks = document.querySelectorAll(".cleanup-c");
-  function clean_navlinks(){
-    for (var i = 0; i < all_navlinks.length; i++) {
-      all_navlinks[i].classList.remove("active");
-    }
-  }
+  <div class="container-fluid" >
+    <div class="row">
+      <div class="col-sm-9">
+        <div class="card">
+          <div class="card-header" id="card_header">
+            <!-- Lecture number -->
+          </div>
+          <div class="card-body">
+            <h5 class="card-title" id="card_title">Special title treatment <!-- Lecture title --> </h5>
+            <p class="card-text" id="card_paragraph">With supporting text below as a natural lead-in to additional content. <!-- Lecture description --></p>
+            <button id="btn_enter_lecture" class="btn btn-primary" type="button" name="button">Iniciar leccion</button>
+          </div>
+        </div>
+      </div>
+      <nav class="col-sm-3" id="scrolltest" >
+        <ul class="nav nav-pills flex-column">
 
-  {% for navlinkid in navlinkid_list %}
-    var thing = {{navlinkid}}.id;
-    {{ navlinkid }}.addEventListener('click', function(event){
-      event.preventDefault();
-      clean_navlinks()
-      {{navlinkid}}.classList.add("active");
-    });
-  {% endfor %}
-</script>
+          {% for lecture in lectures %}
 
+          <li class="nav-item">
+            <a class="nav-link cleanup-c" id="{{ lecture.navlinkid }}" href>Lección {{lecture.lecture_index_number}}</a>
+          </li>
+
+          {% endfor %}
+
+        </ul>
+      </nav>
+    </div>
+  </div>
 
   <div class="container">
     <div class="row">
@@ -77,6 +54,44 @@
     </div>
   </div>
 
+
+  <script type="text/javascript">
+    var card_header = document.getElementById('card_header');
+    var card_title = document.getElementById('card_title');
+    var card_paragraph = document.getElementById('card_paragraph');
+    window.onload= function(){
+      {{navlinkid_list.0}}.classList.add("active");
+      card_title.innerHTML = "{{ lectures.0.title }}";
+      card_header.innerHTML = "Lección " + "{{ lectures.0.lecture_index_number }}";
+      card_paragraph.innerHTML = "{{ lectures.0.description }}";
+    }
+    var all_navlinks = document.querySelectorAll(".cleanup-c");
+    function clean_navlinks(){
+      for (var i = 0; i < all_navlinks.length; i++) {
+        all_navlinks[i].classList.remove("active");
+      }
+    }
+
+    {% for navlinkid in navlinkid_list %}
+      var thing = {{navlinkid}}.id;
+      {{ navlinkid }}.addEventListener('click', function(event){
+        event.preventDefault();
+        clean_navlinks()
+        {{navlinkid}}.classList.add("active");
+        var lectureid = {{navlinkid}}.id.replace('navlink_','');;
+
+        {% for lecture in lectures %}
+          if( {{lecture.id }} == lectureid ){
+            card_title.innerHTML = "{{ lecture.title }}";
+            card_header.innerHTML = "Leccion " + "{{ lecture.lecture_index_number }}"
+            card_paragraph.innerHTML = "{{ lecture.description }}"
+          }
+        {% endfor %}
+
+
+      });
+    {% endfor %}
+  </script>
 
 
 {% endblock %}
