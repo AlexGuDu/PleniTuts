@@ -10,56 +10,49 @@
       </div>
 </div>
 
-
-
 {% include 'pleniapp/__unit_group.html' %}
 
-<div class="container-fluid" id="scrolltest" data-spy="scroll" data-target="#myScrollspy" data-offset="1">
+<div class="container-fluid" >
   <div class="row">
-    <nav class="col-sm-3 col-4" id="myScrollspy">
-      <ul class="nav nav-pills flex-column">
-        <li class="nav-item">
-          <a class="nav-link active" href="#section1">Section 1</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#section2">Section 2</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#section3">Section 3</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Section 4</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#section41">Link 1</a>
-            <a class="dropdown-item" href="#section42">Link 2</a>
-          </div>
-        </li>
-      </ul>
-    </nav>
-    <div class="col-sm-9 col-8">
-      <div id="section1" class="bg-success">
-        <h1>Section 1</h1>
-        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
-      </div>
-      <div id="section2" class="bg-warning">
-        <h1>Section 2</h1>
-        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
-      </div>
-      <div id="section3" class="bg-secondary">
-        <h1>Section 3</h1>
-        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
-      </div>
-      <div id="section41" class="bg-danger">
-        <h1>Section 4-1</h1>
-        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
-      </div>
-      <div id="section42" class="bg-info">
-        <h1>Section 4-2</h1>
-        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+    <div class="col-sm-9">
+      <div class="card">
+        <div class="card-header">
+          Featured
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
       </div>
     </div>
+    <nav class="col-sm-3" id="scrolltest" >
+      <ul class="nav nav-pills flex-column">
+
+        {% for lecture in lectures %}
+
+        <li class="nav-item">
+          <a class="nav-link" id="{{ lecture.navlinkid }}" href>{{lecture.title}}</a>
+        </li>
+
+        {% endfor %}
+
+      </ul>
+    </nav>
   </div>
 </div>
+
+<script type="text/javascript">
+  {% for navlinkid in navlinkid_list %}
+    var thing = {{navlinkid}}.id;
+    {{ navlinkid }}.addEventListener('click', function(event){
+      console.log('hey' + " " + thing)
+      event.preventDefault();
+    });
+  {% endfor %}
+
+</script>
+
 
   <div class="container">
     <div class="row">

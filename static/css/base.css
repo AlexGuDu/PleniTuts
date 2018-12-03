@@ -1,16 +1,9 @@
-body {
 
-  }
-
-  div.col-8 div {
-      height: 500px;
-  }
-
-  #scrolltest{
-    position: relative;
-    height: 200px;
-    overflow-y: scroll;
-  }
+ #scrolltest{
+   position: relative;
+   height: 20rem;
+   overflow-y: scroll;
+ }
 
 .jumbotron{
   width: 100%;
