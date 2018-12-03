@@ -32,7 +32,7 @@
         {% for lecture in lectures %}
 
         <li class="nav-item">
-          <a class="nav-link" id="{{ lecture.navlinkid }}" href>{{lecture.title}}</a>
+          <a class="nav-link cleanup-c" id="{{ lecture.navlinkid }}" href>{{lecture.title}}</a>
         </li>
 
         {% endfor %}
@@ -43,14 +43,25 @@
 </div>
 
 <script type="text/javascript">
+  window.onload= function(){
+    {{navlinkid_list.0}}.classList.add("active");
+
+  }
+  var all_navlinks = document.querySelectorAll(".cleanup-c");
+  function clean_navlinks(){
+    for (var i = 0; i < all_navlinks.length; i++) {
+      all_navlinks[i].classList.remove("active");
+    }
+  }
+
   {% for navlinkid in navlinkid_list %}
     var thing = {{navlinkid}}.id;
     {{ navlinkid }}.addEventListener('click', function(event){
-      console.log('hey' + " " + thing)
       event.preventDefault();
+      clean_navlinks()
+      {{navlinkid}}.classList.add("active");
     });
   {% endfor %}
-
 </script>
 
 
