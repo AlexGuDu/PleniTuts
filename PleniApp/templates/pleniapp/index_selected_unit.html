@@ -2,21 +2,77 @@
 {% load staticfiles %}
 
 {% block content %}
-  <div class="jumbotron jumbotron-fluid text-center bg-default">
-        <div class="container">
-          <h1>Adultos en Plenituts</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Requescate en Pace.</p>
-          <a href="#" class="btn btn-dark ">Comenzar</a>
-        </div>
-  </div>
+<div class="jumbotron jumbotron-fluid text-center bg-default">
+      <div class="container">
+        <h1>Adultos en Plenituts</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Requescate en Pace.</p>
+        <a href="#" class="btn btn-dark ">Comenzar</a>
+      </div>
+</div>
+
+
 
 {% include 'pleniapp/__unit_group.html' %}
 
-  <h3>{{title}}</h3>
+<div class="container-fluid" id="scrolltest" data-spy="scroll" data-target="#myScrollspy" data-offset="1">
+  <div class="row">
+    <nav class="col-sm-3 col-4" id="myScrollspy">
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="#section1">Section 1</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#section2">Section 2</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#section3">Section 3</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Section 4</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#section41">Link 1</a>
+            <a class="dropdown-item" href="#section42">Link 2</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="col-sm-9 col-8">
+      <div id="section1" class="bg-success">
+        <h1>Section 1</h1>
+        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+      </div>
+      <div id="section2" class="bg-warning">
+        <h1>Section 2</h1>
+        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+      </div>
+      <div id="section3" class="bg-secondary">
+        <h1>Section 3</h1>
+        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+      </div>
+      <div id="section41" class="bg-danger">
+        <h1>Section 4-1</h1>
+        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+      </div>
+      <div id="section42" class="bg-info">
+        <h1>Section 4-2</h1>
+        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <ul class="list-group">
-    {% for lecture in lectures %}
-      <li class="list-group-item"><a href="{% url 'details' id=lecture.id %}">{{lecture.title}}</a></li>
-    {% endfor %}
-  </ul>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <ul class="list-group">
+          {% for lecture in lectures %}
+            <a class="btn btn-outline-info" href="{% url 'details' id=lecture.id %}">{{lecture.title}}</a>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
 {% endblock %}

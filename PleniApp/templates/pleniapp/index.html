@@ -9,6 +9,7 @@
           <a href="#" class="btn btn-dark ">Comenzar</a>
         </div>
   </div>
+  
 
 {% include 'pleniapp/__unit_group.html' %}
 
@@ -47,13 +48,4 @@
       </div>
     </div>
   </div> <br>
-
-  <h3>{{title}}</h3>
-
-  <ul class="list-group">
-    {% for lecture in lectures %}
-      <li class="list-group-item"><a href="{% url 'details' id=lecture.id %}">{{lecture.title}}</a></li>
-    {% endfor %}
-  </ul>
-
 {% endblock %}
