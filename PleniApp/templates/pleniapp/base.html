@@ -13,10 +13,10 @@
     <title>Plenituts</title>
   </head>
 
-  <body >
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <body>
+    <nav id="base_navbar" class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="{% url 'indexroot' %}">
-         <img src="{% static 'img/ossan.png' %}" width="30" height="30" class="d-inline-block align-top" alt=""> Plenituts</a>
+         <img src="{% static 'img/ossan.png' %}" width="30" height="30" class="d-inline-block align-top" alt=""> <b>Plenituts</b></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -33,6 +33,24 @@
               <a class="dropdown-item" href="{% url 'index_selected_unit' id=3 %}">Basica 3</a>
             </div>
           </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Temas
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="{% url 'index_selected_type' id=1 %}">Correo Gmail</a>
+              <a class="dropdown-item" href="{% url 'index_selected_type' id=2 %}">Explorador de Internet</a>
+              <a class="dropdown-item" href="{% url 'index_selected_type' id=3 %}">Windows</a>
+              <hr>
+              <a class="dropdown-item" href="{% url 'index_selected_type' id=4 %}">Facebook</a>
+              <a class="dropdown-item" href="{% url 'index_selected_type' id=5 %}">Youtube</a>
+              <a class="dropdown-item" href="{% url 'index_selected_type' id=6 %}">Microsoft Office</a>
+              <hr>
+              <a class="dropdown-item" href="{% url 'index_selected_type' id=7 %}">Equipo de Computo</a>
+              <a class="dropdown-item" href="{% url 'index_selected_type' id=8 %}">Juegos</a>
+              <a class="dropdown-item" href="{% url 'index_selected_type' id=9 %}">Paint</a>
+            </div>
+          </li>
         </ul>
       </div>
     </nav>
@@ -42,8 +60,11 @@
       {% endblock %}
     </div>
 
-    <div class="card-footer text-muted basefooter">
-       Adultos en Pleintuts
+    <div class="card-footer basefooter">
+      <div class="row">
+        <div class="col-sm-8">  </div>
+        <div class="col-sm-4">Fundacion Adultos en Plenituts 	&reg;</div>
+      </div>
     </div>
 
   </body>

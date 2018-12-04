@@ -1,24 +1,56 @@
-body{
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,900);
 
+body{
+  background-image: url("../img/basebg.png");
+}
+
+#base_navbar{
+ background-image: linear-gradient(to right,rgb(85, 166, 252, 0.5) , rgba(255, 255, 255, 0.8));
+ box-shadow: 0 1rem 2rem rgba(50,50,50,0.3);
+ position: fixed;
+ top: 0;
+ width: 100%;
+ z-index: 1;
+}
+
+.dropdown-menu{
+   background-image: linear-gradient(to right bottom,rgb(85, 166, 252, 0.2) , rgba(255, 255, 255, 1));
+}
+
+.dropdown-item{
+  font-weight: 600;
 }
 
 .basefooter{
+  font-family: 'Roboto', sans-serif;
+  font-size : 1.3em;
+  font-weight : bold;
   padding-top: 1rem;
   margin-top: 3.5rem;
+  background-image: linear-gradient(to right,rgb(255, 255, 255, 0.8) , rgba(85, 166, 252, 0.5));
+  box-shadow: 0 -1rem 2rem rgba(50,50,50,0.3);
 }
 
- #scrolltest{
+ #scrollindex{
    position: relative;
    height: 20rem;
    overflow-y: scroll;
  }
 
-
-
  #lecture_info_card{
    height: 20rem;
    border-bottom-left-radius: 2.5rem;
-   border-bottom-right-radius: 2.5rem;
+   border-color: darkgrey;
+   border-width: 0.12rem;
+   box-shadow: 0 1rem 1rem rgba(50,50,50,0.3);
+ }
+
+ #lecture_index_card{
+   height: 20rem;
+   border-color: darkgrey;
+   border-width: 0.12rem;
+   box-shadow: 0 1rem 1rem rgba(50,50,50,0.3);
+
  }
 
  .card-body{
@@ -29,19 +61,33 @@ body{
    position: absolute;
    bottom: 1.5rem;
    left: 1.6rem;
+   border-bottom-left-radius: 1rem;
+   border-top-right-radius: 1rem;
+ }
+
+ h1{
+  font-family: 'Roboto', sans-serif;
+  font-size : 4em;
+  font-weight : bold;
+  text-transform : uppercase;
  }
 
 .jumbotron{
+  margin-top:3rem;
   width: 100%;
   border-bottom-left-radius: 2rem;
   border-bottom-right-radius: 2rem;
-  background-image: linear-gradient(to right bottom,rgba(255, 255, 255, 0.8),rgba(255, 252, 181, 0.8)), url(../img/basebg.jpg);
+  background-image: linear-gradient(to right bottom,rgba(255, 255, 255, 0.8),rgba(255, 252, 181, 0.8)), url(../img/jumbotronbg.jpg);
+}
+
+.jumbotron:hover{
+  background-image: linear-gradient(to right bottom,rgba(255, 255, 255, 0.8),rgba(255, 252, 181, 0.6)), url(../img/jumbotronbg.jpg);
 }
 
 .img-thumbnail{
   height: 90%;
   width: 80%;
-  padding: 1rem;
+  padding: 2rem;
   border-radius: 2rem;
   animation: desaturate 0.75s;
   filter: grayscale(65%);
@@ -52,11 +98,61 @@ body{
   cursor: pointer;
   animation: saturate 0.35s;
   filter: grayscale(0%);
+  transform: translateY(.3rem);
+  box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
 }
+
+.img-thumbnail:active{
+  transform: translateY(.4rem);
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
+}
+
+.imglabel{
+  background-color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size : 1.3em;
+  font-weight : bold;
+  text-transform : uppercase;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60%;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
+}
+
+.img-thumbnail:hover + .imglabel{
+  opacity: 1;
+}
+
+
 .btn-lg{
   width: 100%;
   border-radius: 1rem;
+  font-family: 'Roboto', sans-serif;
+  font-size : 1.5em;
+  font-weight : bold;
+  text-transform : uppercase;
+  background-color: #d8ebff;
+  border-color: #383838;
+  border-width: 0.15rem;
+  color: #212121;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,.25);
 }
+
+.btn-lg:hover{
+  transform: translateY(.15rem);
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,.5);
+}
+
+#spacing{
+  margin-top: 4rem;
+}
+
 
 @keyframes saturate{
   0% {
@@ -78,3 +174,4 @@ body{
     filter: grayscale(65%);
   }
 }
+\

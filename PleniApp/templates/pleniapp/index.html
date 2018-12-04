@@ -6,45 +6,54 @@
         <div class="container">
           <h1>Adultos en Plenituts</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Requescate en Pace.</p>
-          <a href="#" class="btn btn-dark ">Comenzar</a>
+          <a href="{% url 'index_selected_unit' id=1 %}" class="btn btn-dark ">Comenzar</a>
         </div>
   </div>
-  
+
 
 {% include 'pleniapp/__unit_group.html' %}
 
   <div class="container" style="text-align:center;">
     <div class="row">
-      <div class="col-sm-4">
+      <div class="imgparent col-sm-4">
         <img src="{% static 'img/gmail.png' %}" class="img-thumbnail">
+        <label class="imglabel" >Correo Gmail</label>
       </div>
-      <div class="col-sm-4">
+      <div class="imgparent col-sm-4">
         <img src="{% static 'img/chrome.png' %}" class="img-thumbnail">
+        <label class="imglabel" >Explorador de Internet</label>
       </div>
-      <div class="col-sm-4">
+      <div class="imgparent col-sm-4">
         <img src="{% static 'img/win.png' %}" class="img-thumbnail">
+        <label class="imglabel" >Windows</label>
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-4">
+      <div class="imgparent col-sm-4">
         <img src="{% static 'img/fb.png' %}" class="img-thumbnail">
+        <label class="imglabel" >Facebook</label>
       </div>
-      <div class="col-sm-4">
+      <div class="imgparent col-sm-4">
         <img src="{% static 'img/yt.png' %}" class="img-thumbnail">
+        <label class="imglabel" >Youtube</label>
       </div>
-      <div class="col-sm-4">
+      <div class="imgparent col-sm-4">
         <img src="{% static 'img/office.png' %}" class="img-thumbnail">
+        <label class="imglabel" >Microsoft Office</label>
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-4">
+      <div class="imgparent col-sm-4">
         <img src="{% static 'img/hw.png' %}" class="img-thumbnail">
+        <label class="imglabel" >Equipo de Computo</label>
       </div>
-      <div class="col-sm-4">
+      <div class="imgparent col-sm-4">
         <img src="{% static 'img/solitary.png' %}" class="img-thumbnail">
+        <label class="imglabel" >Juegos</label>
       </div>
-      <div class="col-sm-4">
+      <div class="imgparent col-sm-4">
         <img src="{% static 'img/paint.png' %}" class="img-thumbnail">
+        <label class="imglabel" >Paint</label>
       </div>
     </div>
   </div> <br>
