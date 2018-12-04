@@ -4,7 +4,7 @@
 {% block content %}
   <div class="jumbotron jumbotron-fluid text-center bg-default">
         <div class="container">
-          <h1>Tipo de Tema</h1>
+          <h1>{{ type }}</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Requescate en Pace.</p>
           <a id="begin_anchor" href="#" class="btn btn-dark ">Iniciar Unidad</a>
         </div>
@@ -33,13 +33,8 @@
                 <a class="nav-link cleanup-c" id="{{ lecture.navlinkid }}" href>Lección {{lecture.lecture_index_number}}</a>
               </li>
               {% endfor %}
-
             </div>
-
           </div>
-
-
-
         </ul>
       </nav>
     </div>
@@ -55,13 +50,17 @@
     var all_navlinks = document.querySelectorAll(".cleanup-c");
 
     window.onload= function(){
-      {{navlinkid_list.0}}.classList.add("active");
-      card_title.innerHTML = "{{ lectures.0.title }}";
-      card_header.innerHTML = "Lección " + "{{ lectures.0.lecture_index_number }}";
-      card_paragraph.innerHTML = "{{ lectures.0.description }}";
-      btn_enter_lecture.innerHTML = "Iniciar Lección " + "{{lectures.0.lecture_index_number}}";
-      btn_enter_lecture.href = "{% url 'details' id=lectures.0.id %}";
-
+      {% if exception == "empty_queryset" %}
+        card_paragraph.innerHTML = "No existen lecciones creadas para este tema."
+        btn_enter_lecture.hidden = "hidden";
+      {% else %}
+        {{navlinkid_list.0}}.classList.add("active");
+        card_title.innerHTML = "{{ lectures.0.title }}";
+        card_header.innerHTML = "Lección " + "{{ lectures.0.lecture_index_number }}";
+        card_paragraph.innerHTML = "{{ lectures.0.description }}";
+        btn_enter_lecture.innerHTML = "Iniciar Lección " + "{{lectures.0.lecture_index_number}}";
+        btn_enter_lecture.href = "{% url 'details' id=lectures.0.id %}";
+      {% endif %}
     }
 
     function clean_navlinks(){

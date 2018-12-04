@@ -36,13 +36,34 @@ def index_selected_unit(request, id):
 def index_selected_type(request, id):
     selected_lectures = Lecture.objects.filter(lecture_type_index=id)
     navlinkid_list = list()
+    exception = "empty_queryset"
     for selected_lecture in selected_lectures:
+        exception = "none"
         selected_lecture.navlinkid += str(selected_lecture.lecture_index_number)
         navlinkid_list.append(selected_lecture.navlinkid)
-    unit = str(id)
+    if id==1:
+        type = "Correo Gmail"
+    if id==2:
+        type = "Explorador de Internet"
+    if id==3:
+        type = "Windows"
+    if id==4:
+        type = "Facebook"
+    if id==5:
+        type = "Youtube"
+    if id==6:
+        type = "Microsoft Office"
+    if id==7:
+        type = "Equipo de Computo"
+    if id==8:
+        type = "Juegos"
+    if id==9:
+        type = "Paint"
     context = {
         'lectures': selected_lectures,
-        'navlinkid_list': navlinkid_list
+        'navlinkid_list': navlinkid_list,
+        'exception': exception,
+        'type': type,
     }
     return render(request, 'pleniapp/index_selected_type.html', context)
 
