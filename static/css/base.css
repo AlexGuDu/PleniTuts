@@ -83,6 +83,24 @@ body{
    border-top-left-radius: 1.5rem;
  }
 
+ #comment_section_card{
+   box-shadow: 0 1rem 1rem rgba(50,50,50,0.3);
+ }
+
+ #heading_comentarios{
+   font-size : 2.25em;
+   text-shadow: 0 0.5rem 1rem rgba(50,50,50,0.3);
+ }
+
+ textarea{
+   resize: none;
+ }
+
+ .fa-paper-plane{
+   font-size: 2.5rem;
+ }
+
+
  #btn_enter_lecture{
    position: absolute;
    bottom: 1.5rem;

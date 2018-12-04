@@ -6,9 +6,11 @@ from .models import Lecture
 
 def index(request):
     lectures = Lecture.objects.all()
+    imgbtnindex_list = [1,2,3,4,5,6,7,8,9]
     context = {
         'title': 'Lectures and shiet',
         'lectures': lectures,
+        'imgbtnindex_list': imgbtnindex_list,
     }
     return render(request, 'pleniapp/index.html', context)
 

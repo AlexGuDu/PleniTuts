@@ -68,15 +68,25 @@
 
 
   <script type="text/javascript">
-    for (var i = 1; i <= 9; i++) {
-      document.getElementById("imgbtn"+i).addEventListener('click', function(){
-        redirect_to_lecturetype(i)
-      });
+    function redirect_to_lecturetype(id_number){
+      {% for imgbtnindex in imgbtnindex_list %}
+        if( {{ imgbtnindex }} == id_number ){
+          window.location.href = "{% url 'index_selected_type' id=imgbtnindex %}"
+        }
+      {% endfor %}
     }
 
-    function redirect_to_lecturetype(id_number){
-      window.location.href = "{% url 'index_selected_type' id=1 %}"
+    window.onload = function(){
+      {% for imgbtnindex in imgbtnindex_list %}
+        var imgbtnid= "imgbtn"+ {{ imgbtnindex }}
+        document.getElementById(imgbtnid).addEventListener('click', function(){
+          redirect_to_lecturetype({{imgbtnindex}});
+        });
+      {% endfor %}
     }
+
+
+
   </script>
 
 {% endblock %}

@@ -5,7 +5,8 @@
   <div class="jumbotron jumbotron-fluid text-center bg-default">
         <div class="container">
           <h1>{{ type }}</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Requescate en Pace.</p>
+          <a class="btn btn-info fas fa-info" data-toggle="collapse" href="#collapsingParagraph" role="button" aria-expanded="false" aria-controls="collapseExample"></a> <br> <br>
+          <p class="collapse" id="collapsingParagraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Requescate en Pace.</p>
           <a id="begin_anchor" href="#" class="btn btn-dark ">Iniciar Unidad</a>
         </div>
   </div>
@@ -47,12 +48,15 @@
     var card_title = document.getElementById('card_title');
     var card_paragraph = document.getElementById('card_paragraph');
     var btn_enter_lecture = document.getElementById('btn_enter_lecture');
+    var begin_anchor = document.getElementById("begin_anchor");
     var all_navlinks = document.querySelectorAll(".cleanup-c");
+
 
     window.onload= function(){
       {% if exception == "empty_queryset" %}
         card_paragraph.innerHTML = "No existen lecciones creadas para este tema."
         btn_enter_lecture.hidden = "hidden";
+        begin_anchor.hidden = "hidde";
       {% else %}
         {{navlinkid_list.0}}.classList.add("active");
         card_title.innerHTML = "{{ lectures.0.title }}";
