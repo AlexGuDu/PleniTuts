@@ -18,10 +18,11 @@ def index_selected_unit(request, id):
     for selected_lecture in selected_lectures:
         selected_lecture.navlinkid += str(selected_lecture.lecture_index_number)
         navlinkid_list.append(selected_lecture.navlinkid)
-
+    unit = str(id)
     context = {
         'lectures': selected_lectures,
-        'navlinkid_list': navlinkid_list
+        'navlinkid_list': navlinkid_list,
+        'unit': unit,
     }
     return render(request, 'pleniapp/index_selected_unit.html', context)
 

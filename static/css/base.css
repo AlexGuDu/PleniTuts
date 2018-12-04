@@ -1,3 +1,11 @@
+body{
+
+}
+
+.basefooter{
+  padding-top: 1rem;
+  margin-top: 3.5rem;
+}
 
  #scrolltest{
    position: relative;
@@ -5,19 +13,29 @@
    overflow-y: scroll;
  }
 
- .card{
+
+
+ #lecture_info_card{
    height: 20rem;
+   border-bottom-left-radius: 2.5rem;
+   border-bottom-right-radius: 2.5rem;
+ }
+
+ .card-body{
+   border-top-left-radius: 1rem;
  }
 
  #btn_enter_lecture{
    position: absolute;
    bottom: 1.5rem;
+   left: 1.6rem;
  }
 
 .jumbotron{
   width: 100%;
   border-bottom-left-radius: 2rem;
   border-bottom-right-radius: 2rem;
+  background-image: linear-gradient(to right bottom,rgba(255, 255, 255, 0.8),rgba(255, 252, 181, 0.8)), url(../img/basebg.jpg);
 }
 
 .img-thumbnail{

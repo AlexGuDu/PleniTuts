@@ -15,22 +15,35 @@
 
   <body >
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="{% url 'indexroot' %}">Plenituts</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand" href="{% url 'indexroot' %}">
+         <img src="{% static 'img/ossan.png' %}" width="30" height="30" class="d-inline-block align-top" alt=""> Plenituts</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link" href="#">Features</a>
-          <a class="nav-item nav-link" href="#">Pricing</a>
-          <a class="nav-item nav-link disabled" href="#">Disabled</a>
-        </div>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Unidades
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="{% url 'index_selected_unit' id=1 %}">Basica 1</a>
+              <a class="dropdown-item" href="{% url 'index_selected_unit' id=2 %}">Basica 2</a>
+              <a class="dropdown-item" href="{% url 'index_selected_unit' id=3 %}">Basica 3</a>
+            </div>
+          </li>
+        </ul>
       </div>
     </nav>
 
     <div class="container">
       {% block content %}
       {% endblock %}
+    </div>
+
+    <div class="card-footer text-muted basefooter">
+       Adultos en Pleintuts
     </div>
 
   </body>
