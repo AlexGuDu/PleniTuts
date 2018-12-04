@@ -29,27 +29,43 @@
   </div> <br> <br>
 
 
-  <div class="container-fluid">
-    <h1 id="heading_comentarios">Preguntas & Respuestas</h1>
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="card" id="comment_section_card">
-          <div class="card-body">
-            <h3>Escribe tu pregunta:</h3>
-            <div class="input-group" style="height:10rem;">
-              <textarea class="form-control" aria-label="With textarea"></textarea>
-              <div class="input-group-append">
-                <button class="btn btn-outline-info type="button" id="button-addon2"><div class="fas fa-paper-plane""></div></button>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 id="heading_comentarios">Preguntas & Respuestas</h1>
+          <div class="card" id="comment_section_card">
+            <div class="card-body">
+              <h3>Escribe tu pregunta:</h3>
+              <div class="input-group" style="height:10rem;">
+                <textarea class="form-control" aria-label="With textarea"></textarea>
+                <div class="input-group-append">
+                  <button class="btn btn-outline-info type="button" id="button-addon2"><div class="fas fa-paper-plane""></div></button>
+                </div>
               </div>
+              <hr>
+              <h5 class="card-title" id="card_title">{{lecture.title}}</h5>
+              <p class="card-text" id="card_paragraph">{{lecture.description}}</p>
             </div>
-
-            <hr>
-            <h5 class="card-title" id="card_title">{{lecture.title}}</h5>
-            <p class="card-text" id="card_paragraph">{{lecture.description}}</p>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <a href="{% url 'indexroot' %}" class="btn">Go back to Latest Tuts.</a>
+    <br><br>
+    <div class="container-fluid" id="details_buttons_container">
+      <div class="row">
+        <div class="col-sm-3">
+          <a href="" class="btn btn-info details-buttons details-buttons-left"><div class="fas fa-chevron-circle-left"></div> Lección Anterior</a>
+        </div>
+        <div class="col-sm-3">
+          <a href="" class="btn btn-info details-buttons">Indice de Unidad</a>
+        </div>
+        <div class="col-sm-3">
+          <a  href="" class="btn btn-info details-buttons">Indice de Tema</a>
+        </div>
+        <div class="col-sm-3">
+          <a href="" class="btn btn-info details-buttons details-buttons-right">Siguiente Lección <div class="fas fa-chevron-circle-right"></div></a>
+        </div>
+      </div>
+    </div>
+
 {% endblock %}

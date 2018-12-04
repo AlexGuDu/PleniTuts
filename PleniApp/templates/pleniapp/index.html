@@ -6,15 +6,13 @@
         <div class="container">
           <h1>Adultos en Plenituts</h1>
           <p>Somos un sitio web enfocados en los adultos mayores, eso es muy bueno por qué tenemos mucha información para mejorar la calidad de vida de nuestros abuelos o personas mayores, para conocer más sobre esta etapa de la vida les presentamos un curso donde se les podrá brindar información valiosa que les ayudará a seguir adelante en una vida llena de tecnología para que tenga la información y comunicación al instante.</p>
-          <a id="begin_anchor" href="{% url 'index_selected_unit' id=1 %}" class="btn btn-dark ">Comenzar</a>
-          <div id="jumbotronbg_area">
+          <a id="begin_anchor" href="{% url 'index_selected_unit' id=1 %}" class="btn btn-dark ">Comenzar <div class="fas fa-flag-checkered"></div></a>
 
-          </div>
         </div>
-  </div>
+  </div> <br>
 
 
-{% include 'pleniapp/__unit_group.html' %} <br>
+{% include 'pleniapp/__unit_group.html' %} <br> <br>
 
 
   <div class="col-sm-12">
@@ -31,8 +29,8 @@
         <img id="imgbtn2" src="{% static 'img/chrome.png' %}" class="img-thumbnail">
         <label class="imglabel" >Explorador de Internet</label>
       </div>
-      <div id="imgbtn3" class="imgparent col-sm-4">
-        <img src="{% static 'img/win.png' %}" class="img-thumbnail">
+      <div class="imgparent col-sm-4">
+        <img id="imgbtn3" src="{% static 'img/win.png' %}" class="img-thumbnail">
         <label class="imglabel" >Windows</label>
       </div>
     </div>

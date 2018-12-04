@@ -1,0 +1,104 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+    <script src="https://use.fontawesome.com/b077a438c4.js"></script>
+    <link rel="stylesheet" href="{% static "css/sign_in.css" %}">
+    <title>Plenituts</title>
+  </head>
+
+  <body>
+
+
+    <div class="float-center" id="head-title">
+      <h1>Plenituts</h1>
+    </div> <br>
+    <p align="center"><img src="{% static 'img/ossan.png' %}" height="10%" width="10%"></p>
+
+    <div class="container">
+      <div class="sign-in" id="signIn">
+        <div class="visible" id="signIn-visible">
+          <i class="fa fa-sign-in fa-3x" aria-hidden="true" style="color: rgb(85, 166, 252);"></i>
+          <h4 class="sign-in-text" style="color: rgb(85, 166, 252);">Iniciar Sesión</h4>
+        </div>
+        <div class="hidden" id="signIn-hidden">
+          <h1 class="sign-in-header" style="color: rgb(85, 166, 252);">INICIAR SESIÓN</h1>
+          <div class="signIn-section">
+            <input type="text" type="text" class="name sign-in-input" placeholder="   Usuario"/>
+            <input type="password" class="pass sign-in-input" placeholder="   Contraseña"/>
+            <div class="social-links"></div>
+            <button class="sign-in-button send" style="background: rgb(85, 166, 252);">
+              <i class="fa fa-arrow-right fa-2x" aria-hidden="true" style="color: rgb(255, 255, 255)"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="sign-up" id="signUp">
+        <div class="visible" id="signUp-visible">
+          <i class="fa fa-user-plus fa-3x" aria-hidden="true"></i>
+          <h4 class="sign-up-text">Registrar</h4>
+        </div>
+        <div class="hidden" id="signUp-hidden">
+          <h1 class="sign-up-header">REGISTRAR</h1>
+          <div class="signUp-section">
+            <input type="text" placeholder="   Usuario" class="sign-up-input name"/>
+            <input placeholder="   Contraseña" type="password" class="sign-up-input pass"/>
+            <button class="sign-up-button send" style="background: rgb(255, 255, 255);">
+              <i class="fa fa-arrow-right fa-2x" aria-hidden="true" style="color: rgb(85, 166, 252);"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer basefooter">
+      <div class="row">
+        <div class="col-sm-12"> <div class="float-right">Fundacion Adultos en Plenituts 	&reg;</div> </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var signIn = document.getElementById('signIn');
+      var signUp = document.getElementById('signUp');
+      var signUpVisible = document.getElementById("signUp-visible");
+      var signUpHidden = document.getElementById("signUp-hidden");
+      var signInVisible = document.getElementById("signIn-visible");
+      var signInHidden = document.getElementById("signIn-hidden");
+
+      signIn.onclick = function(){
+        signIn.style.width = '500px';
+        signUp.style.width = '100px';
+        signInVisible.className = 'hidden';
+        signInHidden.className = 'hidden-animation';
+
+        //Need to add if statement to check of other visible/hidden has already been clicked.
+        if(signUpVisible.classList.contains('hidden')){
+          signUpHidden.className = 'hidden';
+          signUpVisible.className = 'visible hidden-animation';
+        }
+      }
+      signUp.onclick = function(){
+        signIn.style.width = '100px';
+        signUp.style.width = '500px';
+        signUpVisible.className = 'hidden';
+        signUpHidden.className = 'visible hidden-animation';
+
+        //Need to add if statement to check of other visible/hidden has already been clicked.
+        if(signInVisible.classList.contains('hidden')){
+          signInHidden.className = 'hidden';
+          signInVisible.className = 'visible hidden-animation';
+        }
+      }
+    </script>
+
+  </body>
+
+</html>

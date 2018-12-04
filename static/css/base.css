@@ -10,7 +10,7 @@ body{
  position: fixed;
  top: 0;
  width: 100%;
- z-index: 1;
+ z-index: 4;
 }
 
 .dropdown-menu{
@@ -26,15 +26,21 @@ body{
   font-size : 1.3em;
   font-weight : bold;
   padding-top: 1rem;
-  margin-top: 3.5rem;
+  margin-top: 8rem;
   background-image: linear-gradient(to right,rgb(255, 255, 255, 0.8) , rgba(85, 166, 252, 0.5));
-  box-shadow: 0 -1rem 2rem rgba(50,50,50,0.3);
+    box-shadow: 0 -1rem 1.5rem rgba(50,50,50,0.25);
 }
 
  #scrollindex{
    position: relative;
    height: 20rem;
    overflow-y: scroll;
+ }
+
+ #card_title{
+   font-family: 'Roboto', sans-serif;
+   font-size : 1.5rem;
+   font-weight : bold;
  }
 
  #lecture_info_card{
@@ -91,6 +97,25 @@ body{
    font-size : 2.25em;
    text-shadow: 0 0.5rem 1rem rgba(50,50,50,0.3);
  }
+
+ #details_buttons_container{
+   text-align: center;
+ }
+
+ .details-buttons{
+   width: 100%;
+   font-size: 1.2rem;
+   box-shadow: 0 0.5rem 0.5rem rgba(50,50,50,0.25);
+ }
+
+ .details-buttons-left{
+   border-bottom-left-radius: 1rem;
+ }
+
+ .details-buttons-right{
+  border-bottom-right-radius: 1rem;
+ }
+
 
  textarea{
    resize: none;
@@ -225,6 +250,7 @@ body{
   0% {
     filter: grayscale(0%);
   }
+
 
   100% {
     filter: grayscale(65%);

@@ -1,0 +1,258 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,900);
+
+.basefooter{
+  font-family: 'Roboto', sans-serif;
+  font-size : 1.3em;
+  font-weight : bold;
+  padding-top: 1rem;
+  margin-top: 8rem;
+  background-image: linear-gradient(to right,rgb(255, 255, 255, 0.8) , rgba(85, 166, 252, 0.5));
+  box-shadow: 0 -1rem 1.5rem rgba(50,50,50,0.25);
+}
+
+#head-title{
+  padding-top: 0.5rem;
+  text-align: center;
+  background-image: linear-gradient(to right bottom,rgba(255, 255, 255, 0.8),rgba(255, 252, 181, 0.8)), url(../img/jumbotronbg.jpg);
+  height: 4rem;
+}
+
+h1{
+  font-family: 'Roboto', sans-serif;
+  font-size : 2.5rem;
+  font-weight : bold;
+  text-transform : uppercase;
+}
+
+#ossanjpgid{
+  height: 25%;
+}
+
+
+/* FORM */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    background-image: url("../img/basebg.png");
+}
+
+.container {
+  width: 600px;
+  height: 450px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.sign-in,
+.sign-up {
+  width: 300px;
+  height: 100%;
+  transition: width 500ms;
+  -webkit-box-shadow: 11px 8px 20px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 11px 8px 20px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 11px 8px 20px 1px rgba(0, 0, 0, 0.75);
+}
+
+.sign-up {
+  background-image: linear-gradient(to right bottom,rgb(85, 166, 252, 1) , rgba(230, 230, 230, 0.01));
+  float: right;
+}
+
+.sign-in {
+  background-color: rgb(255, 255, 255);
+  background-image: linear-gradient(to left top, rgba(230, 230, 230, 0.7), rgb(85, 166, 252, 0.25) );
+  float: left;
+}
+
+.sign-up:hover,
+.sign-in:hover {
+  width: 370px;
+}
+
+.visible {
+  width: 80px;
+  height: 90px;
+  margin: 0 auto;
+  margin-top: 150px;
+  text-align: center;
+}
+
+i {
+  margin-bottom: 10px;
+  color: #E4F1FE;
+}
+
+.sign-up-text,
+.sign-in-text {
+  font-family: 'Open Sans';
+  font-size: 18px;
+  font-weight: 600;
+  color: #E4F1FE;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.hidden-animation {
+  animation: appear 500ms linear;
+  animation-iteration-count: 1;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: .2;
+  }
+  40% {
+    opacity: .4;
+  }
+  60% {
+    opacity: .5;
+  }
+  80% {
+    opacity: .7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.signIn-section,
+.signUp-section {
+  width: 300px;
+  height: 180px;
+  margin: 0 auto;
+  margin-top: 70px;
+}
+
+input {
+  display: block;
+  position: relative;
+  width: 280px;
+  height: 30px;
+  margin: 0 auto;
+  border: none;
+  border-bottom: 1px solid  #ECF0F1;
+  color: #ECF0F1;
+}
+
+.sign-in-input {
+  background-color: rgb(85, 166, 252);
+  color: white;
+}
+
+.sign-up-input {
+  background-color:  rgb(255, 255, 255);
+  color: black;
+}
+
+.pass {
+  margin-top: 20px;
+}
+
+#signUp-hidden {
+  margin-left: 100px;
+  margin-top: 0;
+}
+
+button {
+  float: right;
+  margin-right: 10px;
+  margin-top: -35px;
+  width: 70px;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: none;
+  transition: border-bottom 150ms;
+}
+
+button:hover {
+  border-bottom: 2px solid white;
+  margin-top: -36px;
+}
+
+.sign-up-button:hover {
+  border-bottom: 2px solid white;
+  margin-top: 24px;
+}
+
+.sign-in-button {
+  background-color: #783595;
+}
+
+.sign-up-button {
+  background-color: #B83C7B;
+}
+
+.sign-up-button {
+  margin-top: 25px;
+}
+
+.fa-arrow-right {
+  margin-top: 2px;
+}
+
+.sign-in-header,
+.sign-up-header {
+  margin-left: 30px;
+  margin-top: 30px;
+  font-family: 'Open Sans';
+  font-size: 42px;
+  font-weight: 600;
+  color: #ECF0F1;
+}
+
+.sign-up-header {
+  margin-left: -80px;
+  margin-top: 30px;
+  width: 200px;
+}
+
+.social-links {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  width: 150px;
+  height: 35px;
+  margin-top: 20px;
+  margin-left: 10px;
+  border-bottom: 1px solid #ECF0F1;
+}
+
+.social-link-item {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border-bottom: none;
+}
+
+.fa-google-plus,
+.fa-twitter,
+.fa-facebook {
+  margin-top: 7px;
+}
+
+.social-link-item:nth-child(1):hover,
+.social-link-item:nth-child(2):hover,
+.social-link-item:nth-child(3):hover {
+  background-color: #dd4b39;
+  border-bottom: 2px solid #ECF0F1;
+  transition: border-bottom 150ms;
+}
+
+.social-link-item:nth-child(2):hover {
+  background-color: #55acee;
+}
+
+.social-link-item:nth-child(3):hover {
+  background-color: #3b5998;
+}

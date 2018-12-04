@@ -4,6 +4,9 @@ from .models import Lecture
 
 # Create your views here.
 
+def sign_in(request):
+    return render(request, 'pleniapp/sign_in.html')
+
 def index(request):
     lectures = Lecture.objects.all()
     imgbtnindex_list = [1,2,3,4,5,6,7,8,9]
