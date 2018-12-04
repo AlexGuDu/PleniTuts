@@ -86,15 +86,16 @@ body{
   border-bottom-left-radius: 2rem;
   border-bottom-right-radius: 2rem;
   background-image: linear-gradient(to right bottom,rgba(255, 255, 255, 0.8),rgba(255, 252, 181, 0.8)), url(../img/jumbotronbg.jpg);
-   box-shadow: 0 0.5rem 1rem rgba(50,50,50,0.3);
+  box-shadow: 0 0.5rem 1rem rgba(50,50,50,0.3);
 }
 
-.jumbotron:hover{
-  background-image: linear-gradient(to right bottom,rgba(255, 255, 255, 0.8),rgba(255, 252, 181, 0.6)), url(../img/jumbotronbg.jpg);
+.fa-info{
+  font-size: 2rem;
+  padding: 0.6rem;
 }
 
 .img-thumbnail{
-  height: 90%;
+  height: 92%;
   width: 80%;
   padding: 2rem;
   border-radius: 2rem;

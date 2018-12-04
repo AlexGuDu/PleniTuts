@@ -3,11 +3,16 @@
 
 {% block content %}
   <div class="jumbotron jumbotron-fluid text-center bg-default">
-        <div class="container">
-          <h1>Unidad Basica #{{unit}}</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Requescate en Pace.</p>
-          <a href="#" class="btn btn-dark ">Iniciar Unidad</a>
-        </div>
+    <div class="container">
+      <h1>Unidad Basica #{{unit}}</h1>
+      <a class="btn btn-info fas fa-info" data-toggle="collapse" href="#collapsingParagraph" role="button" aria-expanded="false" aria-controls="collapseExample"></a> <br> <br>
+      <p class="collapse" id="collapsingParagraph">{{unit_description}}</p>
+      <a id="begin_anchor" href="{% url 'details' id=lectures.0.id %}" class="btn btn-dark ">Iniciar Unidad</a>
+    </div>
+
+
+
+
   </div>
 
   {% include 'pleniapp/__unit_group.html' %} <br>
