@@ -60,7 +60,7 @@ body {
 }
 
 .sign-up {
-  background-image: linear-gradient(to right bottom,rgb(85, 166, 252, 1) , rgba(230, 230, 230, 0.01));
+  background-image: linear-gradient(to right bottom,rgb(85, 166, 252, 1) , rgba(200, 200, 200, 1));
   float: right;
 }
 
@@ -145,11 +145,13 @@ input {
 }
 
 .sign-in-input {
+  border-radius: 0.75rem;
   background-color: rgb(85, 166, 252);
   color: white;
 }
 
 .sign-up-input {
+  border-radius: 0.75rem;
   background-color:  rgb(255, 255, 255);
   color: black;
 }
@@ -167,17 +169,25 @@ button {
   float: right;
   margin-right: 10px;
   margin-top: -35px;
-  width: 70px;
-  height: 35px;
+  width: 4rem;
+  height: 2.5rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 1rem;
   box-shadow: none;
-  transition: border-bottom 150ms;
+  transition: border-bottom 150ms
+  outline: none !important;
 }
 
 button:hover {
-  border-bottom: 2px solid white;
-  margin-top: -36px;
+  transform: translateY(.3rem);
+  box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
+  outline: none !important;
+}
+
+button:active{
+  transform: translateY(.4rem);
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
+  outline: none !important;
 }
 
 .sign-up-button:hover {
