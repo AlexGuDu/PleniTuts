@@ -60,10 +60,28 @@ body{
 
  .card-body{
    border-top-left-radius: 1rem;
-
  }
 
+ iframe{
+   border-radius: 0.5rem;
+ }
 
+ #details_youtube_card{
+   height: 80vh;
+   box-shadow: 0 1rem 1rem rgba(50,50,50,0.3);
+   border-radius: 1rem;
+ }
+
+ #details_description_card{
+   box-shadow: 0 1rem 1rem rgba(50,50,50,0.3);
+   border-top-right-radius: 1.5rem;
+   border-top-left-radius: 1.5rem;
+ }
+
+ #details_card_header:first-child{
+   border-top-right-radius: 1.5rem;
+   border-top-left-radius: 1.5rem;
+ }
 
  #btn_enter_lecture{
    position: absolute;
@@ -101,6 +119,7 @@ body{
   border-radius: 2rem;
   animation: desaturate 0.75s;
   filter: grayscale(65%);
+  box-shadow: 0 1rem 1rem rgba(0,0,0,.1);
 
 }
 
@@ -136,7 +155,7 @@ body{
 }
 
 .img-thumbnail:hover + .imglabel{
-  opacity: 1;
+  opacity: 0.92;
 }
 
 

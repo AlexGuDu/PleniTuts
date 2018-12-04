@@ -15,7 +15,7 @@
     <div class="row">
       <div class="col-sm-9">
         <div class="card" id="lecture_info_card">
-          <div class="card-header" id="card_header"><!-- Lecture number --></div>
+          <div class="card-header" id="card_header">{{ type }}</div>
           <div class="card-body">
             <h5 class="card-title" id="card_title"><!-- Lecture title --> </h5>
             <p class="card-text" id="card_paragraph"><!-- Lecture description --></p>
@@ -26,11 +26,11 @@
       <nav class="col-sm-3"  >
         <ul class="nav nav-pills flex-column">
           <div class="card" id="lecture_index_card">
-            <div id="card_header_index" class="card-header" >Indice</div>
+            <div id="card_header_index" class="card-header" >Lecciones</div>
             <div class="card-body" id="scrollindex">
               {% for lecture in lectures %}
               <li class="nav-item">
-                <a class="nav-link cleanup-c" id="{{ lecture.navlinkid }}" href>Lección {{lecture.lecture_index_number}}</a>
+                <a class="nav-link cleanup-c" id="{{ lecture.navlinkid }}" href>{{lecture.title}}</a>
               </li>
               {% endfor %}
             </div>
@@ -56,9 +56,7 @@
       {% else %}
         {{navlinkid_list.0}}.classList.add("active");
         card_title.innerHTML = "{{ lectures.0.title }}";
-        card_header.innerHTML = "Lección " + "{{ lectures.0.lecture_index_number }}";
         card_paragraph.innerHTML = "{{ lectures.0.description }}";
-        btn_enter_lecture.innerHTML = "Iniciar Lección " + "{{lectures.0.lecture_index_number}}";
         btn_enter_lecture.href = "{% url 'details' id=lectures.0.id %}";
       {% endif %}
     }

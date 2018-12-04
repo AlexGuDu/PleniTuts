@@ -3,9 +3,29 @@
 {% block content %}
 <br> <div id="spacing"></div>
 {% include 'pleniapp/__unit_group.html' %}
-  <h3>{{lecture.title}}</h3>
-  <div class="card">
 
+
+  <div class="container-fluid">
+    <div class="card" id="details_youtube_card">
+      <div class="card-body" >
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/{{ytlink}}">
+        </iframe>
+      </div>
+    </div>
+  </div>
+  <br> <br>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card" id="details_description_card">
+          <div class="card-header" id="details_card_header">Lección {{lecture.lecture_index_number}}</div>
+          <div class="card-body">
+            <h5 class="card-title" id="card_title">{{lecture.title}}</h5>
+            <p class="card-text" id="card_paragraph">{{lecture.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <a href="{% url 'indexroot' %}" class="btn">Go back to Latest Tuts.</a>
 {% endblock %}

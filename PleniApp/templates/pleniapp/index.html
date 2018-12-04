@@ -14,50 +14,69 @@
   </div>
 
 
-{% include 'pleniapp/__unit_group.html' %}
+{% include 'pleniapp/__unit_group.html' %} <br>
+
+
+  <div class="col-sm-12">
+    <div id="unit_group_title">TIPOS DE TEMA </div>
+  </div> <br>
 
   <div class="container" style="text-align:center;">
     <div class="row">
       <div class="imgparent col-sm-4">
-        <img src="{% static 'img/gmail.png' %}" class="img-thumbnail">
+        <img id="imgbtn1" src="{% static 'img/gmail.png' %}" class="img-thumbnail">
         <label class="imglabel" >Correo Gmail</label>
       </div>
       <div class="imgparent col-sm-4">
-        <img src="{% static 'img/chrome.png' %}" class="img-thumbnail">
+        <img id="imgbtn2" src="{% static 'img/chrome.png' %}" class="img-thumbnail">
         <label class="imglabel" >Explorador de Internet</label>
       </div>
-      <div class="imgparent col-sm-4">
+      <div id="imgbtn3" class="imgparent col-sm-4">
         <img src="{% static 'img/win.png' %}" class="img-thumbnail">
         <label class="imglabel" >Windows</label>
       </div>
     </div>
     <div class="row">
       <div class="imgparent col-sm-4">
-        <img src="{% static 'img/fb.png' %}" class="img-thumbnail">
+        <img id="imgbtn4" src="{% static 'img/fb.png' %}" class="img-thumbnail">
         <label class="imglabel" >Facebook</label>
       </div>
       <div class="imgparent col-sm-4">
-        <img src="{% static 'img/yt.png' %}" class="img-thumbnail">
+        <img id="imgbtn5" src="{% static 'img/yt.png' %}" class="img-thumbnail">
         <label class="imglabel" >Youtube</label>
       </div>
       <div class="imgparent col-sm-4">
-        <img src="{% static 'img/office.png' %}" class="img-thumbnail">
+        <img id="imgbtn6" src="{% static 'img/office.png' %}" class="img-thumbnail">
         <label class="imglabel" >Microsoft Office</label>
       </div>
     </div>
     <div class="row">
       <div class="imgparent col-sm-4">
-        <img src="{% static 'img/hw.png' %}" class="img-thumbnail">
+        <img id="imgbtn7" src="{% static 'img/hw.png' %}" class="img-thumbnail">
         <label class="imglabel" >Equipo de Computo</label>
       </div>
       <div class="imgparent col-sm-4">
-        <img src="{% static 'img/solitary.png' %}" class="img-thumbnail">
+        <img id="imgbtn8" src="{% static 'img/solitary.png' %}" class="img-thumbnail">
         <label class="imglabel" >Juegos</label>
       </div>
       <div class="imgparent col-sm-4">
-        <img src="{% static 'img/paint.png' %}" class="img-thumbnail">
+        <img id="imgbtn9" src="{% static 'img/paint.png' %}" class="img-thumbnail">
         <label class="imglabel" >Paint</label>
       </div>
     </div>
   </div> <br>
+
+
+  <script type="text/javascript">
+    for (var i = 1; i <= 9; i++) {
+      document.getElementById("imgbtn"+i).addEventListener('click', function(){
+        redirect_to_lecturetype(i)
+      });
+    }
+
+    function redirect_to_lecturetype(id_number){
+      window.location.href = "{% url 'index_selected_type' id=1 %}"
+    }
+  </script>
+
 {% endblock %}

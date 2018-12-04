@@ -8,7 +8,7 @@ def index(request):
     lectures = Lecture.objects.all()
     context = {
         'title': 'Lectures and shiet',
-        'lectures': lectures
+        'lectures': lectures,
     }
     return render(request, 'pleniapp/index.html', context)
 
@@ -71,7 +71,8 @@ def index_selected_type(request, id):
 def details(request, id):
     lecture = Lecture.objects.get(id=id)
     context = {
-        'lecture': lecture
+        'lecture': lecture,
+        'ytlink': 'tgbNymZ7vqY',
     }
 
     return render(request, 'pleniapp/details.html', context)
