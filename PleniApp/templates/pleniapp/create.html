@@ -96,7 +96,7 @@
             videourl: $('#lecture_videourl').val(),
           },
           success: function(){
-            console.log('it was created no problem')
+            window.location.href="{% url 'index_admin' %}";
           }
         })
       }

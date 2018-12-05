@@ -75,14 +75,13 @@
     function navlink_focus(p_navlinkid){
       clean_navlinks()
       p_navlinkid.classList.add("active");
-      var lecture_ind_num = p_navlinkid.id.replace('navlink_','');;
+      var lecture_ind_num = p_navlinkid.id;
 
       {% for lecture in lectures %}
-        if( {{lecture.lecture_index_number }} == lecture_ind_num ){
+        if( "{{lecture.navlinkid }}" == lecture_ind_num ){
           card_title.innerHTML = "{{ lecture.title }}";
           card_header.innerHTML = "Leccion " + "{{ lecture.lecture_index_number }}"
           card_paragraph.innerHTML = "{{ lecture.description }}"
-          btn_enter_lecture.innerHTML = "Iniciar Lección " + "{{lecture.lecture_index_number}}";
           btn_enter_lecture.href = "{% url 'details' id=lecture.id %}";
         }
       {% endfor %}

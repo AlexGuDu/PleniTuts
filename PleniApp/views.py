@@ -189,11 +189,13 @@ def index_selected_type(request, id):
     if sign_in_valid(request):
         selected_lectures = Lecture.objects.filter(lecture_type_index=id)
         navlinkid_list = list()
+        i=1
         exception = "empty_queryset"
         for selected_lecture in selected_lectures:
             exception = "none"
-            selected_lecture.navlinkid += str(selected_lecture.lecture_index_number)
+            selected_lecture.navlinkid += str(i)
             navlinkid_list.append(selected_lecture.navlinkid)
+            i+=1
         if id==1:
             type = "Correo Gmail"
             type_description = ""
