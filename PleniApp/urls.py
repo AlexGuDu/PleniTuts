@@ -15,6 +15,8 @@ urlpatterns = [
     path('signout_user/', views.signout_user, name="signout_user"),
     path('details/<int:id>/', views.details, name='details'),
     path('details_admin/<int:id>/', views.details_admin, name='details_admin'),
+    path('create/', views.create, name='create'),
+    path('create_lecture/', views.create_lecture, name='create_lecture'),
     path('lectureblock/<int:id>/', views.index_selected_unit, name='index_selected_unit'),
     path('lecturetype/<int:id>/', views.index_selected_type, name='index_selected_type'),
 ]

@@ -41,6 +41,11 @@ body{
   box-shadow: 0 -1rem 1.5rem rgba(50,50,50,0.25);
 }
 
+#createcard{
+  border-radius: 0.8rem;
+  box-shadow: 0 1rem 2.5rem rgba(0,0,0,0.7);
+}
+
  #scrollindex{
    position: relative;
    height: 20rem;
@@ -253,6 +258,62 @@ body{
 
 #spacing{
   margin-top: 4rem;
+}
+
+.bttn,
+.bttn:link,
+.bttn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 3rem;
+  transition: all .2s;
+  position: relative;
+  outline: none;
+  font-size: 1.6rem;
+}
+
+.bttn:hover {
+  transform: translateY(.3rem);
+  box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
+}
+
+.bttn:active {
+  transform: translateY(.4rem);
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
+}
+
+.bttn--white {
+  background-color: #fff;
+  color: #777;
+
+}
+
+.bttn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 6rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .5s;
+}
+
+.bttn--white::after {
+  background-color: #fff;
+}
+
+.bttn:hover::after {
+  transform: scale(1.5);
+  opacity: 0;
+}
+
+#bigbuttoncontainer{
+  text-align: center;
 }
 
 

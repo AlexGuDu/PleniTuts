@@ -273,3 +273,35 @@ def details_admin(request, id):
         return render(request, 'pleniapp/details_admin.html', context)
     else:
         return redirect('sign_in')
+
+def create(request):
+    if sign_in_valid_admin(request):
+        context = {
+            'user': request.session['username_admin'],
+        }
+
+        return render(request, 'pleniapp/create.html', context)
+    else:
+        return redirect('sign_in')
+
+def create_lecture(request):
+    if request.method == 'POST':
+        lec_title = request.POST['title']
+        lec_description = request.POST['description']
+        lec_unit = request.POST['unit']
+        lec_type = request.POST['type']
+        lec_videourl = request.POST['videourl']
+
+        partner_lectures = Lecture.objects.filter(unit_index=lec_unit)
+        latest_partner_lecture = partner_lectures.last()
+        new_lec_index_num = latest_partner_lecture.lecture_index_number + 1
+
+        Lecture.objects.create(
+            title = lec_title,
+            description = lec_description,
+            unit_index = lec_unit,
+            lecture_type_index = lec_type,
+            videourl = lec_videourl,
+            lecture_index_number = new_lec_index_num
+        )
+        return HttpResponse('')

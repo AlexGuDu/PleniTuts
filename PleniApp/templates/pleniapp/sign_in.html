@@ -99,7 +99,7 @@
       else{
         $.ajax({
           type: 'POST',
-          url: '{% url 'register_user' %}',
+          url: '{% url 'create_lecture' %}',
           data:{
             username: $('#register_username').val(),
             password: $('#register_password').val(),
