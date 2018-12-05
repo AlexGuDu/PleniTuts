@@ -1,0 +1,40 @@
+{% extends 'pleniapp/base_admin.html' %}
+{% load staticfiles %}
+
+{% block content %}
+  <div class="jumbotron jumbotron-fluid text-center bg-default">
+        <div class="container">
+          <h1>Adultos en Plenituts</h1>
+          <p>Somos un sitio web enfocados en los adultos mayores, eso es muy bueno por qué tenemos mucha información para mejorar la calidad de vida de nuestros abuelos o personas mayores, para conocer más sobre esta etapa de la vida les presentamos un curso donde se les podrá brindar información valiosa que les ayudará a seguir adelante en una vida llena de tecnología para que tenga la información y comunicación al instante.</p>
+          <a id="begin_anchor" href="{% url 'index_selected_unit' id=1 %}" class="btn btn-dark ">Comenzar &nbsp; <div class="fas fa-flag-checkered"></div></a>
+
+        </div>
+  </div> <br>
+
+
+
+
+
+  <script type="text/javascript">
+    function redirect_to_lecturetype(id_number){
+      {% for imgbtnindex in imgbtnindex_list %}
+        if( {{ imgbtnindex }} == id_number ){
+          window.location.href = "{% url 'index_selected_type' id=imgbtnindex %}"
+        }
+      {% endfor %}
+    }
+
+    window.onload = function(){
+      {% for imgbtnindex in imgbtnindex_list %}
+        var imgbtnid= "imgbtn"+ {{ imgbtnindex }}
+        document.getElementById(imgbtnid).addEventListener('click', function(){
+          redirect_to_lecturetype({{imgbtnindex}});
+        });
+      {% endfor %}
+    }
+
+
+
+  </script>
+
+{% endblock %}

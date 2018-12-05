@@ -40,9 +40,7 @@ def signin_user(request):
         'username': "no_match"
     })
 
-def signout_user(request):
-    request.session.flush()
-    return redirect('sign_in')
+
 
 # REGULAR USER ENDS #
 # REGULAR USER ENDS #
@@ -71,21 +69,21 @@ def signin_user_admin(request):
         users = User.objects.filter(user_type="admin")
         for user in users:
             if (username == user.username) and (password == user.password):
-                request.session['username'] = user.username
+                request.session['username_admin'] = user.username
                 return JsonResponse({
-                    'username': request.session['username']
+                    'username': request.session['username_admin']
                 })
 
     return JsonResponse({
         'username': "no_match"
     })
 
-def signout_user_admin(request):
+# ADMIN USER ENDS #
+# ADMIN USER ENDS #
+
+def signout_user(request):
     request.session.flush()
     return redirect('sign_in')
-
-# ADMIN USER ENDS #
-# ADMIN USER ENDS #
 
 
 
@@ -124,6 +122,21 @@ def index(request):
             'imgbtnindex_list': imgbtnindex_list,
         }
         return render(request, 'pleniapp/index.html', context)
+    else:
+        return redirect('sign_in')
+
+
+def index_admin(request):
+    if sign_in_valid(request):
+        lectures = Lecture.objects.all()
+        imgbtnindex_list = [1,2,3,4,5,6,7,8,9]
+        context = {
+            'user': request.session['username_admin'],
+            'title': 'Lectures and shiet',
+            'lectures': lectures,
+            'imgbtnindex_list': imgbtnindex_list,
+        }
+        return render(request, 'pleniapp/index_admin.html', context)
     else:
         return redirect('sign_in')
 

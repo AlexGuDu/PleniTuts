@@ -144,7 +144,13 @@
             password: $('#signin_password').val(),
           },
           success: function(data){
-            window.location.href="{% url 'indexroot' %}";
+            if (data.username == "no_match") {
+              alert("Este usuario o contraseña no existen!")
+            }
+            else {
+              window.location.href="{% url 'indexroot' %}";
+            }
+
           }
         })
       }

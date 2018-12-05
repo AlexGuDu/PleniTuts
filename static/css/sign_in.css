@@ -119,10 +119,10 @@ i {
     opacity: 0;
   }
   20% {
-    opacity: .2;
+    opacity: 0;
   }
   40% {
-    opacity: .4;
+    opacity: 0;
   }
   60% {
     opacity: .5;
@@ -134,6 +134,7 @@ i {
     opacity: 1;
   }
 }
+
 .signIn-section,
 .signUp-section {
   width: 300px;

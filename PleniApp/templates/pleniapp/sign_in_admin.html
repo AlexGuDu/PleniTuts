@@ -44,7 +44,7 @@
             <div class="signIn-section">
               <input id="signin_username" type="text" type="text" class="name sign-in-input" placeholder="   Usuario"/>
               <input id="signin_password" type="password" class="pass sign-in-input" placeholder="   Contraseña"/>
-              <div class="social-links"><div id="signin_error_msg" hidden>Ingrese sus datos en ambos campos.</div></div>
+              <div class="social-links" style="border-color: lightgrey;"><div id="signin_error_msg" hidden>Ingrese sus datos en ambos campos.</div></div>
 
               <button id="signin_btn" class="sign-in-button send" style="background: #0f0f0f;">
                 <i class="fa fa-arrow-right fa-2x" aria-hidden="true" style="color: rgb(255, 255, 255)"></i>
@@ -64,7 +64,7 @@
             <div class="signUp-section">
               <input id="register_username" type="text" placeholder="   Usuario" class="sign-up-input name"/>
               <input id="register_password"  type="password" placeholder="   Contraseña" class="sign-up-input pass"/>
-              <div id="reg_error_msg" hidden>Ingrese sus datos en ambos campos.</div>
+              <div id="reg_error_msg" hidden style="color:white;">Ingrese sus datos en ambos campos.</div>
               <button id="register_btn"  class="sign-up-button send" style="background: rgb(255, 255, 255);">
               <i class="fa fa-arrow-right fa-2x" aria-hidden="true" style="color: #0f0f0f;"></i>
               </button>
@@ -136,6 +136,7 @@
         document.getElementById('signin_error_msg').hidden = false;
       }
       else{
+
         $.ajax({
           type: 'POST',
           url: '{% url 'signin_user_admin' %}',
@@ -144,7 +145,14 @@
             password: $('#signin_password').val(),
           },
           success: function(data){
-            window.location.href="{% url 'indexroot' %}";
+            if (data.username == "no_match") {
+              alert("Este usuario o contraseña no existen!")
+            }
+            else {
+              window.location.href="{% url 'index_admin' %}";
+            }
+
+  
           }
         })
       }

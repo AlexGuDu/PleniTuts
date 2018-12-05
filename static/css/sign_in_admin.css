@@ -35,7 +35,7 @@ h2{
   font-size : 1.5rem;
   font-weight : bold;
   text-transform : uppercase;
-  color: rgb(85, 166, 252);
+  color: white;
 }
 
 #ossanjpgid{
@@ -125,10 +125,10 @@ i {
     opacity: 0;
   }
   20% {
-    opacity: .2;
+    opacity: 0;
   }
   40% {
-    opacity: .4;
+    opacity: 0;
   }
   60% {
     opacity: .5;
