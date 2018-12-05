@@ -9,6 +9,9 @@ def sign_in_valid(request):
     else:
         return False
 
+# REGULAR USER STARTS #
+# REGULAR USER STARTS #
+
 def register_user(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -25,7 +28,7 @@ def signin_user(request):
         username = request.POST['username']
         password = request.POST['password']
 
-        users = User.objects.all()
+        users = User.objects.filter(user_type="regular")
         for user in users:
             if (username == user.username) and (password == user.password):
                 request.session['username'] = user.username
@@ -41,6 +44,51 @@ def signout_user(request):
     request.session.flush()
     return redirect('sign_in')
 
+# REGULAR USER ENDS #
+# REGULAR USER ENDS #
+
+
+# ADMIN USER STARTS #
+# ADMIN USER STARTS #
+
+def register_user_admin(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        User.objects.create(
+            username = username,
+            password = password,
+            user_type = "admin"
+        )
+        return HttpResponse('')
+
+def signin_user_admin(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        users = User.objects.filter(user_type="admin")
+        for user in users:
+            if (username == user.username) and (password == user.password):
+                request.session['username'] = user.username
+                return JsonResponse({
+                    'username': request.session['username']
+                })
+
+    return JsonResponse({
+        'username': "no_match"
+    })
+
+def signout_user_admin(request):
+    request.session.flush()
+    return redirect('sign_in')
+
+# ADMIN USER ENDS #
+# ADMIN USER ENDS #
+
+
+
 # Create your views here.
 
 def sign_in(request):
@@ -53,6 +101,17 @@ def sign_in(request):
             password = form.cleaned_data.get("password")
 
         return render(request, 'pleniapp/sign_in.html', {"form":form})
+
+def sign_in_admin(request):
+    if sign_in_valid(request):
+        return redirect('index')
+    else:
+        form = UserSignInForm(request.POST or None)
+        if form.is_valid():
+            username = form.cleaned_data.get("username")
+            password = form.cleaned_data.get("password")
+
+        return render(request, 'pleniapp/sign_in_admin.html', {"form":form})
 
 def index(request):
     if sign_in_valid(request):

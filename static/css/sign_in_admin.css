@@ -6,16 +6,22 @@
   font-weight : bold;
   padding-top: 1rem;
   margin-top: 8rem;
-  background-image: linear-gradient(to right,rgb(255, 255, 255, 0.8) , rgba(85, 166, 252, 0.5));
+  background-image: linear-gradient(to right,rgb(255, 255, 255, 0.8) , darkgrey);
   box-shadow: 0 -1rem 1.5rem rgba(50,50,50,0.25);
 }
 
 #head-title{
   padding-top: 0.5rem;
   text-align: center;
-  background-image: linear-gradient(to right bottom,rgba(255, 255, 255, 0.8),rgba(255, 252, 181, 0.8)), url(../img/jumbotronbg.jpg);
+  background-image: linear-gradient(to right bottom,rgba(255, 255, 255, 0.5),rgba(255, 252, 181, 0.5)), url(../img/jumbotronbg.jpg);
   height: 4rem;
   box-shadow: 0 1rem 1.5rem rgba(50,50,50,0.25);
+  filter: grayscale(100%);
+}
+
+#ossanimg{
+   filter: sepia(100%) grayscale(30%);
+
 }
 
 h1{
@@ -45,7 +51,7 @@ h2{
 
 body {
     background-image: url("../img/basebg.png");
-    background-color: #fffcfc;
+    background-color: black;
 }
 
 .container {
@@ -69,13 +75,13 @@ body {
 }
 
 .sign-up {
-  background-image: linear-gradient(to right bottom,rgb(85, 166, 252, 1) , rgba(200, 200, 200, 1));
+  background-image: linear-gradient(to right bottom,#303030, rgba(200, 200, 200, 1));
   float: right;
 }
 
 .sign-in {
   background-color: rgb(255, 255, 255);
-  background-image: linear-gradient(to left top, rgba(230, 230, 230, 0.7), rgb(85, 166, 252, 0.25) );
+  background-image: linear-gradient(to left top, rgba(230, 230, 230, 0.7),darkgrey );
   float: left;
 }
 
@@ -156,7 +162,7 @@ input {
 
 .sign-in-input {
   border-radius: 0.75rem;
-  background-color: rgb(85, 166, 252);
+  background-color: #303030;
   color: white;
 }
 
