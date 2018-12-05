@@ -4,7 +4,7 @@ from django.db import models
 class Lecture(models.Model):
     title = models.CharField(max_length=50)
     description = models.TextField(default='empty')
-    videourl = models.CharField(max_length=200)
+    videourl = models.CharField(default='tgbNymZ7vqY', max_length=200)
     unit_index = models.IntegerField(default=0)
     lecture_type_index = models.IntegerField(default=0)
     lecture_index_number = models.IntegerField(default=0)

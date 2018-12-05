@@ -250,7 +250,7 @@ def details(request, id):
         context = {
             'user': request.session['username'],
             'lecture': lecture,
-            'ytlink': 'tgbNymZ7vqY',
+            'ytlink': lecture.videourl,
             'unit_index': lecture.unit_index,
             'lecture_type_index': lecture.lecture_type_index,
             'prev_lec': previous_lec_id,
@@ -267,7 +267,7 @@ def details_admin(request, id):
         context = {
             'user': request.session['username_admin'],
             'lecture': lecture,
-            'ytlink': 'tgbNymZ7vqY',
+            'ytlink': lecture.videourl,
             'unit_index': lecture.unit_index,
             'lecture_type_index': lecture.lecture_type_index,
         }

@@ -80,11 +80,10 @@
         document.getElementById("missingstuff").hidden = false;
       }
       else{
-        console.log($('#lecture_title').val())
-        console.log($('#lecture_description').val())
-        console.log($('#lecture_unit').val())
-        console.log($('#lecture_type').val())
-        console.log($('#lecture_videourl').val())
+
+        var yturl = $('#lecture_videourl').val();
+        var sliced_yturl = yturl.slice(-11)
+
         $.ajax({
           type: 'POST',
           url: '{% url 'create_lecture' %}',
@@ -93,7 +92,7 @@
             description: $('#lecture_description').val(),
             unit: $('#lecture_unit').val(),
             type: $('#lecture_type').val(),
-            videourl: $('#lecture_videourl').val(),
+            videourl: sliced_yturl,
           },
           success: function(){
             window.location.href="{% url 'index_admin' %}";
