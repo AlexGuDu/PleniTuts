@@ -23,6 +23,13 @@ h1{
   font-weight : bold;
   text-transform : uppercase;
 }
+h2{
+  font-family: 'Roboto', sans-serif;
+  font-size : 1.5rem;
+  font-weight : bold;
+  text-transform : uppercase;
+  color: rgb(85, 166, 252);
+}
 
 #ossanjpgid{
   height: 25%;
@@ -134,10 +141,11 @@ i {
 }
 
 input {
+  padding-left: 1rem;
   display: block;
   position: relative;
-  width: 280px;
-  height: 30px;
+  width: 17.5rem;
+  height: 1.8rem;
   margin: 0 auto;
   border: none;
   border-bottom: 1px solid  #ECF0F1;
@@ -165,7 +173,7 @@ input {
   margin-top: 0;
 }
 
-button {
+button, #submitbtn {
   float: right;
   margin-right: 10px;
   margin-top: -35px;
@@ -178,13 +186,13 @@ button {
   outline: none !important;
 }
 
-button:hover {
+button:hover, #submitbtn:hover {
   transform: translateY(.3rem);
   box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
   outline: none !important;
 }
 
-button:active{
+button:active, #submitbtn:active{
   transform: translateY(.4rem);
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
   outline: none !important;

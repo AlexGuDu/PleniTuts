@@ -8,7 +8,7 @@
   <div class="container-fluid">
     <div class="card" id="details_youtube_card">
       <div class="card-body" >
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/{{ytlink}}">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/{{ytlink}}"  allowFullScreen>
         </iframe>
       </div>
     </div>
@@ -57,10 +57,10 @@
           <a href="" class="btn btn-info details-buttons details-buttons-left"><div class="fas fa-chevron-circle-left"></div> Lección Anterior</a>
         </div>
         <div class="col-sm-3">
-          <a href="" class="btn btn-info details-buttons">Indice de Unidad</a>
+          <a href="{% url 'index_selected_unit' id=unit_index %}" class="btn btn-info details-buttons">Indice de Unidad</a>
         </div>
         <div class="col-sm-3">
-          <a  href="" class="btn btn-info details-buttons">Indice de Tema</a>
+          <a  href="{% url 'index_selected_type' id=lecture_type_index %}" class="btn btn-info details-buttons">Indice de Tema</a>
         </div>
         <div class="col-sm-3">
           <a href="" class="btn btn-info details-buttons details-buttons-right">Siguiente Lección <div class="fas fa-chevron-circle-right"></div></a>
