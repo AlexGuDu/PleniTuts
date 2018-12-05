@@ -99,7 +99,7 @@
       else{
         $.ajax({
           type: 'POST',
-          url: '{% url 'register_user' %}',
+          url: '{% url 'register_user_admin' %}',
           data:{
             username: $('#register_username').val(),
             password: $('#register_password').val(),
@@ -138,7 +138,7 @@
       else{
         $.ajax({
           type: 'POST',
-          url: '{% url 'signin_user' %}',
+          url: '{% url 'signin_user_admin' %}',
           data:{
             username: $('#signin_username').val(),
             password: $('#signin_password').val(),
