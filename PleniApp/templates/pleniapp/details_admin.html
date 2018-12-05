@@ -33,9 +33,14 @@
           <h1 id="heading_comentarios">Preguntas & Respuestas</h1>
           <div class="card" id="comment_section_card">
             <div class="card-body">
-
-              <h5 class="card-title" id="card_title">{{lecture.title}}</h5>
-              <p class="card-text" id="card_paragraph">{{lecture.description}}</p>
+              {% for comment in comments %}
+                <div class="card comment-card" id="details_description_card">
+                  <div class="card-header" id="details_card_header">by {{comment.username}}</div>
+                  <div class="card-body">
+                    <p class="card-text" id="card_paragraph">{{comment.body}}</p>
+                  </div>
+                </div>
+              {% endfor %}
             </div>
           </div>
         </div>

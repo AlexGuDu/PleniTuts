@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
-from .models import Lecture, User
+from .models import Lecture, User, Comment
 from .forms import UserSignInForm, CreateLectureForm
 
 
@@ -198,13 +198,13 @@ def index_selected_type(request, id):
             i+=1
         if id==1:
             type = "Correo Gmail"
-            type_description = ""
+            type_description = "En este tema de Gmail aprenderemos desde cero todo lo que puede hacerse con esta fantástica herramienta de Google para aumentar nuestra productividad, en el trabajo, escuela o en nuestra vida cotidiana, Gmail es sin duda la aplicación de correo electrónico más completa, flexible y versátil en la actualidad ya que casi la mayoría de las aplicaciones puedes ingresar un correo Gmail."
         if id==2:
             type = "Explorador de Internet"
-            type_description = "En este tema de Gmail aprenderemos desde cero todo lo que puede hacerse con esta fantástica herramienta de Google para aumentar nuestra productividad, en el trabajo, escuela o en nuestra vida cotidiana, Gmail es sin duda la aplicación de correo electrónico más completa, flexible y versátil en la actualidad ya que casi la mayoría de las aplicaciones puedes ingresar un correo Gmail"
+            type_description = "En este tema del Explorador de internet aprenderemos desde cero todo lo que puede hacerse con esta fantástica herramienta que nos promociona muchos beneficios para poder estar conectados siempre a la red, donde podemos buscar información, usar mapas, ver videos, ingresar a nuestros correos y entre otros beneficios que podremos tener con esta valiosa herramienta."
         if id==3:
             type = "Windows"
-            type_description = "En este tema del Explorador de internet aprenderemos desde cero todo lo que puede hacerse con esta fantástica herramienta que nos promociona muchos beneficios para poder estar conectados siempre a la red, donde podemos buscar información, usar mapas, ver videos, ingresar a nuestros correos y entre otros beneficios que podremos tener con esta valiosa herramienta."
+            type_description = "En este tema de Windows podremos aprender todo lo necesario para poder abrir las distintas aplicaciones con la que cuenta nuestra computadora, de igual forma a poder navegar dentro de nuestros archivos y de esta forma poder copiar, borra o guardar lo que no necesitemos, también podremos saber cómo conectar a internet desde las opciones de wifi que tiene nuestra computadora."
         if id==4:
             type = "Facebook"
             type_description = "En este tema de Facebook podremos ver cómo crear una cuenta de Facebook, como configurarla para tener mayor privacidad, también a realizar búsquedas avanzadas de amigos, a poder añadir contenido a nuestro perfil, enviar mensajes por esta plataforma, también se mostrará la forma de cómo realizar una página que nos podrá ser útil para una pequeña empresa que tengamos."
@@ -237,10 +237,14 @@ def index_selected_type(request, id):
 
 
 def details(request, id):
+
     if sign_in_valid(request):
         previous_lec_id = 0
         next_lec_id = 0
         lecture = Lecture.objects.get(id=id)
+        comments = Comment.objects.filter(lecture_id=lecture.id)
+        for comment in comments:
+            comment.username = User.objects.get(id=comment.user_id).username
         partner_lectures = Lecture.objects.filter(unit_index=lecture.unit_index)
         for partner_lecture in partner_lectures:
             if (partner_lecture.lecture_index_number + 1) == lecture.lecture_index_number:
@@ -251,6 +255,7 @@ def details(request, id):
             'user': request.session['username'],
             'lecture': lecture,
             'ytlink': lecture.videourl,
+            'comments': comments,
             'unit_index': lecture.unit_index,
             'lecture_type_index': lecture.lecture_type_index,
             'prev_lec': previous_lec_id,
@@ -264,10 +269,14 @@ def details(request, id):
 def details_admin(request, id):
     if sign_in_valid_admin(request):
         lecture = Lecture.objects.get(id=id)
+        comments = Comment.objects.filter(lecture_id=lecture.id)
+        for comment in comments:
+            comment.username = User.objects.get(id=comment.user_id).username
         context = {
             'user': request.session['username_admin'],
             'lecture': lecture,
             'ytlink': lecture.videourl,
+            'comments': comments,
             'unit_index': lecture.unit_index,
             'lecture_type_index': lecture.lecture_type_index,
         }

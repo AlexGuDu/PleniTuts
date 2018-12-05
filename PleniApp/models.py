@@ -23,6 +23,7 @@ class Comment(models.Model):
     body = models.TextField()
     date = models.DateTimeField(auto_now_add = True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    lecture = models.ForeignKey(Lecture, on_delete=models.CASCADE)
 
 class Reply(models.Model):
     body = models.TextField()

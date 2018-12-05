@@ -2,7 +2,7 @@
 
 body{
   background-image: url("../img/basebg.png");
-  background-color: black;
+  background-color: #333333;
 }
 #container {
 		min-height:100%;
@@ -16,7 +16,7 @@ body{
   top: 0;
   width: 100%;
   z-index: 4;
-  filter: grayscale(100%);
+  filter: grayscale(85%);
 }
 
 #ossanimg{
@@ -31,12 +31,13 @@ body{
   font-weight: 600;
 }
 
-.basefooter{
+footer{
   font-family: 'Roboto', sans-serif;
   font-size : 1.3em;
   font-weight : bold;
-  padding-top: 1rem;
-  margin-top: 10rem;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
   background-image: linear-gradient(to right,rgb(255, 255, 255, 0.8) , darkgrey);
   box-shadow: 0 -1rem 1.5rem rgba(50,50,50,0.25);
 }
@@ -79,6 +80,11 @@ body{
    border-top-right-radius: 2.5rem;
  }
 
+ .comment-card{
+   border-bottom-right-radius: 2.5rem;
+   border-bottom-left-radius: 2.5rem;
+ }
+
  .card-body{
    border-top-left-radius: 1rem;
  }
@@ -94,20 +100,20 @@ body{
  }
 
  #details_description_card{
-   box-shadow: 0 0.5rem 1rem rgba(255,255,255,0.2);
-   border-top-right-radius: 1.5rem;
-   border-top-left-radius: 1.5rem;
+   box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.5);
+   border-radius: 1rem;
  }
 
  #details_card_header:first-child{
-   border-top-right-radius: 1.5rem;
-   border-top-left-radius: 1.5rem;
+   background-image: linear-gradient(to right,rgb(255, 255, 255, 0.8) , darkgrey);
+   border-top-right-radius: 1rem;
+   border-top-left-radius: 1rem;
  }
 
  #comment_section_card{
    box-shadow: 0 0.5rem 1rem rgba(255,255,255,0.2);
-   border-bottom-left-radius: 1.5rem;
-   border-bottom-right-radius: 1.5rem;
+   border-radius: 1rem;
+   padding:1rem;
  }
 
  #heading_comentarios{

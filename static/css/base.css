@@ -64,6 +64,10 @@ body{
 #card_header_index:first-child{
    border-top-right-radius: 2.5rem;
  }
+ .comment-card{
+   border-bottom-right-radius: 1rem;
+   border-bottom-left-radius: 1rem;
+ }
 
  .card-body{
    border-top-left-radius: 1rem;
@@ -81,17 +85,19 @@ body{
 
  #details_description_card{
    box-shadow: 0 1rem 1rem rgba(50,50,50,0.3);
-   border-top-right-radius: 1.5rem;
-   border-top-left-radius: 1.5rem;
+   border-radius: 1rem;
  }
 
  #details_card_header:first-child{
-   border-top-right-radius: 1.5rem;
-   border-top-left-radius: 1.5rem;
+   background-image: linear-gradient(to right,rgb(85, 166, 252, 0.5) , rgba(255, 255, 255, 0.8));
+   border-top-right-radius: 1rem;
+   border-top-left-radius: 1rem;
  }
 
  #comment_section_card{
    box-shadow: 0 1rem 1rem rgba(50,50,50,0.3);
+   border-radius: 1rem;
+   padding:1rem;
  }
 
  #heading_comentarios{
