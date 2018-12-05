@@ -44,7 +44,7 @@
             <div class="signIn-section">
               <input id="signin_username" type="text" type="text" class="name sign-in-input" placeholder="   Usuario"/>
               <input id="signin_password" type="password" class="pass sign-in-input" placeholder="   Contraseña"/>
-              <div class="social-links"><div id="signin_error_msg" hidden>Ingrese sus datos en ambos campos.</div></div>
+              <div class="social-links"><div id="signin_error_msg" hidden>Ingrese sus datos en ambos campos.</div><div id="signin_error_msg2" hidden>Usuario o Contraseña Incorrectos.</div></div>
 
               <button id="signin_btn" class="sign-in-button send" style="background: rgb(85, 166, 252);">
                 <i class="fa fa-arrow-right fa-2x" aria-hidden="true" style="color: rgb(255, 255, 255)"></i>
@@ -145,7 +145,8 @@
           },
           success: function(data){
             if (data.username == "no_match") {
-              alert("Este usuario o contraseña no existen!")
+              document.getElementById('signin_error_msg').hidden = true;
+              document.getElementById('signin_error_msg2').hidden = false;
             }
             else {
               window.location.href="{% url 'indexroot' %}";

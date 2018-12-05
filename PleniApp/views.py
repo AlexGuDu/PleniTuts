@@ -3,14 +3,17 @@ from django.http import HttpResponse, JsonResponse
 from .models import Lecture, User
 from .forms import UserSignInForm
 
+
+
+# REGULAR USER STARTS #
+# REGULAR USER STARTS #
+
 def sign_in_valid(request):
     if 'username' in request.session:
         return True
     else:
         return False
 
-# REGULAR USER STARTS #
-# REGULAR USER STARTS #
 
 def register_user(request):
     if request.method == 'POST':
@@ -40,7 +43,9 @@ def signin_user(request):
         'username': "no_match"
     })
 
-
+def signout_user(request):
+    request.session.flush()
+    return redirect('sign_in')
 
 # REGULAR USER ENDS #
 # REGULAR USER ENDS #
@@ -48,6 +53,11 @@ def signin_user(request):
 
 # ADMIN USER STARTS #
 # ADMIN USER STARTS #
+def sign_in_valid_admin(request):
+    if 'username_admin' in request.session:
+        return True
+    else:
+        return False
 
 def register_user_admin(request):
     if request.method == 'POST':
@@ -78,12 +88,15 @@ def signin_user_admin(request):
         'username': "no_match"
     })
 
+
+def signout_user_admin(request):
+    request.session.flush()
+    return redirect('sign_in_admin')
+
 # ADMIN USER ENDS #
 # ADMIN USER ENDS #
 
-def signout_user(request):
-    request.session.flush()
-    return redirect('sign_in')
+
 
 
 
@@ -101,8 +114,8 @@ def sign_in(request):
         return render(request, 'pleniapp/sign_in.html', {"form":form})
 
 def sign_in_admin(request):
-    if sign_in_valid(request):
-        return redirect('index')
+    if sign_in_valid_admin(request):
+        return redirect('index_admin')
     else:
         form = UserSignInForm(request.POST or None)
         if form.is_valid():
@@ -127,7 +140,7 @@ def index(request):
 
 
 def index_admin(request):
-    if sign_in_valid(request):
+    if sign_in_valid_admin(request):
         lectures = Lecture.objects.all()
         imgbtnindex_list = [1,2,3,4,5,6,7,8,9]
         context = {
@@ -138,7 +151,7 @@ def index_admin(request):
         }
         return render(request, 'pleniapp/index_admin.html', context)
     else:
-        return redirect('sign_in')
+        return redirect('sign_in_admin')
 
 
 def index_selected_unit(request, id):
