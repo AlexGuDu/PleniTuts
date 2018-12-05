@@ -13,7 +13,12 @@
         <div class="card-body">
           <h5 class="card-title" id="card_title"><!-- Lecture title --> </h5>
           <p class="card-text" id="card_paragraph"><!-- Lecture description --></p>
-          <a id="btn_enter_lecture" href="" class="btn btn-primary">Iniciar Lección</a>
+
+            <a id="btn_enter_lecture" href="" class="btn btn-primary ">Participar</a>
+            <a id="btn_edit_lecture" href="" class="btn btn-primary">Editar Lección</a>
+
+
+
         </div>
       </div>
     </div>
@@ -67,8 +72,7 @@
       card_title.innerHTML = "{{ lectures.0.title }}";
       card_header.innerHTML = "Unidad " + "{{ lecture.0.unit_index }}" + " - Lección " + "{{ lectures.0.lecture_index_number }}";
       card_paragraph.innerHTML = "{{ lectures.0.description }}";
-      btn_enter_lecture.innerHTML = "Iniciar Lección " + "{{lectures.0.lecture_index_number}}";
-      btn_enter_lecture.href = "{% url 'details' id=lectures.0.id %}";
+      btn_enter_lecture.href = "{% url 'details_admin' id=lectures.0.id %}";
     }
 
     function clean_navlinks(){
@@ -87,8 +91,7 @@
           card_title.innerHTML = "{{ lecture.title }}";
           card_header.innerHTML = "Unidad " + "{{ lecture.unit_index }}" + " - Leccion " + "{{ lecture.lecture_index_number }}"
           card_paragraph.innerHTML = "{{ lecture.description }}"
-          btn_enter_lecture.innerHTML = "Iniciar Lección " + "{{lecture.lecture_index_number}}";
-          btn_enter_lecture.href = "{% url 'details' id=lecture.id %}";
+          btn_enter_lecture.href = "{% url 'details_admin' id=lecture.id %}";
         }
       {% endfor %}
     }

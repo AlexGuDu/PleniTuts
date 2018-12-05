@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from .models import Lecture, User
-from .forms import UserSignInForm
+from .forms import UserSignInForm, CreateLectureForm
 
 
 
@@ -236,15 +236,40 @@ def index_selected_type(request, id):
 
 def details(request, id):
     if sign_in_valid(request):
+        previous_lec_id = 0
+        next_lec_id = 0
         lecture = Lecture.objects.get(id=id)
+        partner_lectures = Lecture.objects.filter(unit_index=lecture.unit_index)
+        for partner_lecture in partner_lectures:
+            if (partner_lecture.lecture_index_number + 1) == lecture.lecture_index_number:
+                previous_lec_id = partner_lecture.id
+            if (partner_lecture.lecture_index_number - 1) == lecture.lecture_index_number:
+                next_lec_id = partner_lecture.id
         context = {
             'user': request.session['username'],
             'lecture': lecture,
             'ytlink': 'tgbNymZ7vqY',
             'unit_index': lecture.unit_index,
             'lecture_type_index': lecture.lecture_type_index,
+            'prev_lec': previous_lec_id,
+            'next_lec': next_lec_id,
         }
 
         return render(request, 'pleniapp/details.html', context)
+    else:
+        return redirect('sign_in')
+
+def details_admin(request, id):
+    if sign_in_valid_admin(request):
+        lecture = Lecture.objects.get(id=id)
+        context = {
+            'user': request.session['username_admin'],
+            'lecture': lecture,
+            'ytlink': 'tgbNymZ7vqY',
+            'unit_index': lecture.unit_index,
+            'lecture_type_index': lecture.lecture_type_index,
+        }
+
+        return render(request, 'pleniapp/details_admin.html', context)
     else:
         return redirect('sign_in')

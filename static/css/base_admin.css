@@ -4,6 +4,10 @@ body{
   background-image: url("../img/basebg.png");
   background-color: black;
 }
+#container {
+		min-height:100%;
+		position:relative;
+	}
 
 #base_navbar{
   background-image: linear-gradient(to right bottom,rgba(255, 255, 255, 0.5),rgba(255, 252, 181, 0.5)), url(../img/jumbotronbg.jpg);
@@ -16,7 +20,7 @@ body{
 }
 
 #ossanimg{
-   filter: sepia(100%) grayscale(30%);
+   filter: sepia(100%);
 }
 
 .dropdown-menu{
@@ -80,12 +84,12 @@ body{
 
  #details_youtube_card{
    height: 80vh;
-   box-shadow: 0 1rem 1rem rgba(50,50,50,0.3);
+   box-shadow: 0 0.5rem 1rem rgba(255,255,255,0.2);
    border-radius: 1rem;
  }
 
  #details_description_card{
-   box-shadow: 0 1rem 1rem rgba(50,50,50,0.3);
+   box-shadow: 0 0.5rem 1rem rgba(255,255,255,0.2);
    border-top-right-radius: 1.5rem;
    border-top-left-radius: 1.5rem;
  }
@@ -96,12 +100,15 @@ body{
  }
 
  #comment_section_card{
-   box-shadow: 0 1rem 1rem rgba(50,50,50,0.3);
+   box-shadow: 0 0.5rem 1rem rgba(255,255,255,0.2);
+   border-bottom-left-radius: 1.5rem;
+   border-bottom-right-radius: 1.5rem;
  }
 
  #heading_comentarios{
    font-size : 2.25em;
    text-shadow: 0 0.5rem 1rem rgba(50,50,50,0.3);
+   color: white;
  }
 
  #details_buttons_container{
@@ -137,7 +144,15 @@ body{
    bottom: 1.5rem;
    left: 1.6rem;
    border-bottom-left-radius: 1rem;
+
+ }
+
+ #btn_edit_lecture{
+   position: absolute;
+   bottom: 1.5rem;
+   left: 8rem;
    border-top-right-radius: 1rem;
+
  }
 
  h1{

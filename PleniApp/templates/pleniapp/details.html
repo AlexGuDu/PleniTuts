@@ -54,7 +54,7 @@
     <div class="container-fluid" id="details_buttons_container">
       <div class="row">
         <div class="col-sm-3">
-          <a href="" class="btn btn-info details-buttons details-buttons-left"><div class="fas fa-chevron-circle-left"></div> Lección Anterior</a>
+          <a id="btn_prev_lec" href="{% url 'details' id=prev_lec %}" class="btn btn-info details-buttons details-buttons-left"><div class="fas fa-chevron-circle-left"></div> Lección Anterior</a>
         </div>
         <div class="col-sm-3">
           <a href="{% url 'index_selected_unit' id=unit_index %}" class="btn btn-info details-buttons">Indice de Unidad</a>
@@ -63,9 +63,28 @@
           <a  href="{% url 'index_selected_type' id=lecture_type_index %}" class="btn btn-info details-buttons">Indice de Tema</a>
         </div>
         <div class="col-sm-3">
-          <a href="" class="btn btn-info details-buttons details-buttons-right">Siguiente Lección <div class="fas fa-chevron-circle-right"></div></a>
+          <a id="btn_next_lec" href="{% url 'details' id=next_lec %}" class="btn btn-info details-buttons details-buttons-right">Siguiente Lección <div class="fas fa-chevron-circle-right"></div></a>
         </div>
       </div>
     </div>
+
+    <script type="text/javascript">
+      var prev_lec = document.getElementById('btn_prev_lec');
+      var next_lec = document.getElementById('btn_next_lec');
+      if ({{prev_lec}} == 0) {
+        prev_lec.classList.remove("btn-info");
+        prev_lec.classList.add("disabled");
+        prev_lec.classList.add("btn-secondary");
+      }
+      if ({{next_lec}} == 0) {
+        next_lec.classList.remove("btn-info");
+        next_lec.classList.add("disabled");
+        next_lec.classList.add("btn-secondary");
+
+      }
+
+    </script>
+
+
 
 {% endblock %}
