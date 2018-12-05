@@ -17,6 +17,7 @@ urlpatterns = [
     path('details_admin/<int:id>/', views.details_admin, name='details_admin'),
     path('create/', views.create, name='create'),
     path('create_lecture/', views.create_lecture, name='create_lecture'),
+    path('user_submit_comment/', views.user_submit_comment, name='user_submit_comment'),
     path('lectureblock/<int:id>/', views.index_selected_unit, name='index_selected_unit'),
     path('lecturetype/<int:id>/', views.index_selected_type, name='index_selected_type'),
 ]

@@ -237,7 +237,6 @@ def index_selected_type(request, id):
 
 
 def details(request, id):
-
     if sign_in_valid(request):
         previous_lec_id = 0
         next_lec_id = 0
@@ -316,3 +315,21 @@ def create_lecture(request):
             lecture_index_number = new_lec_index_num
         )
         return HttpResponse('')
+
+def user_submit_comment(request):
+    if request.method == 'POST':
+        comment = request.POST['comment']
+        lecture_id = request.POST['lecture_id']
+        user_id = User.objects.get(username=request.session['username'])
+
+        comment_now = Comment.objects.create(
+            body = comment,
+            lecture_id = 5,
+            user_id = 2
+        )
+        comment_now.username = User.objects.get(id=comment_now.user_id).username
+        data = {
+            'username': 'hey',
+            'body': 'you'
+        }
+        return JsonResponse(data)

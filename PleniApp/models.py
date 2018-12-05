@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 # Create your models here.
 class Lecture(models.Model):
@@ -21,7 +22,7 @@ class User(models.Model):
 
 class Comment(models.Model):
     body = models.TextField()
-    date = models.DateTimeField(auto_now_add = True)
+    date = models.DateTimeField(default=datetime.now, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     lecture = models.ForeignKey(Lecture, on_delete=models.CASCADE)
 

@@ -36,18 +36,19 @@
             <div class="card-body">
               <h3>Escribe tu pregunta:</h3>
               <div class="input-group" style="height:10rem;">
-                <textarea class="form-control" aria-label="With textarea"></textarea>
+                <textarea id="question_textarea" class="form-control" aria-label="With textarea"></textarea>
                 <div class="input-group-append">
-                  <button class="btn btn-outline-info type="button" id="button-addon2"><div class="fas fa-paper-plane""></div></button>
+                  <button class="btn btn-outline-info type="button" id="send_question"><div class="fas fa-paper-plane""></div></button>
                 </div>
               </div>
               <hr>
               {% for comment in comments %}
                 <div class="card comment-card" id="details_description_card">
-                  <div class="card-header" id="details_card_header">by {{comment.username}}</div>
+                  <div class="card-header" id="details_card_header">by {{comment.username}}<div class="float-right">{{comment.date}}</div></div>
                   <div class="card-body">
                     <p class="card-text" id="card_paragraph">{{comment.body}}</p>
                   </div>
+                  </div><div style="height:1.5rem;">
                 </div>
               {% endfor %}
             </div>
@@ -85,8 +86,23 @@
         next_lec.classList.remove("btn-info");
         next_lec.classList.add("disabled");
         next_lec.classList.add("btn-secondary");
-
       }
+
+    $(document).on('click', '#send_question', function(e){
+      e.preventDefault();
+      $.ajax({
+        type: 'POST',
+        url: '{% url 'user_submit_comment' %}',
+        data:{
+          comment: $('#question_textarea').val(),
+          lecture_id: {{lecture.id}},
+        },
+        success: function(data){
+          console.log(data.username);
+          console.log(data.body)
+        }
+      })
+    });
 
     </script>
 
