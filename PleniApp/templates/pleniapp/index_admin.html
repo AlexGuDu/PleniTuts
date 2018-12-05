@@ -2,36 +2,103 @@
 {% load staticfiles %}
 
 {% block content %}
-  <div class="jumbotron jumbotron-fluid text-center bg-default">
-        <div class="container">
-          <h1>Adultos en Plenituts</h1>
-          <p>Somos un sitio web enfocados en los adultos mayores, eso es muy bueno por qué tenemos mucha información para mejorar la calidad de vida de nuestros abuelos o personas mayores, para conocer más sobre esta etapa de la vida les presentamos un curso donde se les podrá brindar información valiosa que les ayudará a seguir adelante en una vida llena de tecnología para que tenga la información y comunicación al instante.</p>
-          <a id="begin_anchor" href="{% url 'index_selected_unit' id=1 %}" class="btn btn-dark ">Comenzar &nbsp; <div class="fas fa-flag-checkered"></div></a>
+<div style="margin-top: 6rem;">
 
+</div>
+<div class="container-fluid" >
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="card" id="lecture_info_card">
+        <div class="card-header" id="card_header"><!-- Lecture number --></div>
+        <div class="card-body">
+          <h5 class="card-title" id="card_title"><!-- Lecture title --> </h5>
+          <p class="card-text" id="card_paragraph"><!-- Lecture description --></p>
+          <a id="btn_enter_lecture" href="" class="btn btn-primary">Iniciar Lección</a>
         </div>
-  </div> <br>
-
-
+      </div>
+    </div>
+    <nav class="col-sm-3"  >
+      <ul class="nav nav-pills flex-column">
+        <div class="card" id="lecture_index_card">
+          <div id="card_header_index" class="card-header"> <div class="far fa-bookmark"></div> Indice</div>
+          <div class="card-body" id="scrollindex">
+            <li style="color:grey;">Unidad 1</li>
+              {% for lecture in lectures %}
+                {% if lecture.unit_index == 1 %}
+                  <li class="nav-item">
+                    <a class="nav-link cleanup-c" id="{{ lecture.navlinkid }}" href>Lección {{lecture.lecture_index_number}}</a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            <li style="color:grey;">Unidad 2</li>
+              {% for lecture in lectures %}
+                {% if lecture.unit_index == 2 %}
+                  <li class="nav-item">
+                    <a class="nav-link cleanup-c" id="{{ lecture.navlinkid }}" href>Lección {{lecture.lecture_index_number}}</a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            <li style="color:grey;">Unidad 3</li>
+              {% for lecture in lectures %}
+                {% if lecture.unit_index == 3 %}
+                  <li class="nav-item">
+                    <a class="nav-link cleanup-c" id="{{ lecture.navlinkid }}" href>Lección {{lecture.lecture_index_number}}</a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+          </div>
+        </div>
+      </ul>
+    </nav>
+  </div>
+</div> <br> <br>
 
 
 
   <script type="text/javascript">
-    function redirect_to_lecturetype(id_number){
-      {% for imgbtnindex in imgbtnindex_list %}
-        if( {{ imgbtnindex }} == id_number ){
-          window.location.href = "{% url 'index_selected_type' id=imgbtnindex %}"
+    var card_header = document.getElementById('card_header');
+    var card_title = document.getElementById('card_title');
+    var card_paragraph = document.getElementById('card_paragraph');
+    var btn_enter_lecture = document.getElementById('btn_enter_lecture');
+    var all_navlinks = document.querySelectorAll(".cleanup-c");
+
+    window.onload= function(){
+      {{navlinkid_list.0}}.classList.add("active");
+      card_title.innerHTML = "{{ lectures.0.title }}";
+      card_header.innerHTML = "Unidad " + "{{ lecture.0.unit_index }}" + " - Lección " + "{{ lectures.0.lecture_index_number }}";
+      card_paragraph.innerHTML = "{{ lectures.0.description }}";
+      btn_enter_lecture.innerHTML = "Iniciar Lección " + "{{lectures.0.lecture_index_number}}";
+      btn_enter_lecture.href = "{% url 'details' id=lectures.0.id %}";
+    }
+
+    function clean_navlinks(){
+      for (var i = 0; i < all_navlinks.length; i++) {
+        all_navlinks[i].classList.remove("active");
+      }
+    }
+
+    function navlink_focus(p_navlinkid){
+      clean_navlinks()
+      p_navlinkid.classList.add("active");
+      var lecture_ind_num = p_navlinkid.id;
+
+      {% for lecture in lectures %}
+        if( "{{lecture.navlinkid }}" == lecture_ind_num ){
+          card_title.innerHTML = "{{ lecture.title }}";
+          card_header.innerHTML = "Unidad " + "{{ lecture.unit_index }}" + " - Leccion " + "{{ lecture.lecture_index_number }}"
+          card_paragraph.innerHTML = "{{ lecture.description }}"
+          btn_enter_lecture.innerHTML = "Iniciar Lección " + "{{lecture.lecture_index_number}}";
+          btn_enter_lecture.href = "{% url 'details' id=lecture.id %}";
         }
       {% endfor %}
     }
 
-    window.onload = function(){
-      {% for imgbtnindex in imgbtnindex_list %}
-        var imgbtnid= "imgbtn"+ {{ imgbtnindex }}
-        document.getElementById(imgbtnid).addEventListener('click', function(){
-          redirect_to_lecturetype({{imgbtnindex}});
-        });
-      {% endfor %}
-    }
+    {% for navlinkid in navlinkid_list %}
+      {{ navlinkid }}.addEventListener('click', function(event){
+        event.preventDefault();
+        navlink_focus({{navlinkid}})
+      });
+    {% endfor %}
 
 
 

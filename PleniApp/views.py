@@ -142,12 +142,17 @@ def index(request):
 def index_admin(request):
     if sign_in_valid_admin(request):
         lectures = Lecture.objects.all()
-        imgbtnindex_list = [1,2,3,4,5,6,7,8,9]
+        navlinkid_list = list()
+        i=1
+        for lecture in lectures:
+            lecture.navlinkid += str(i)
+            navlinkid_list.append(lecture.navlinkid)
+            i+=1
         context = {
             'user': request.session['username_admin'],
             'title': 'Lectures and shiet',
             'lectures': lectures,
-            'imgbtnindex_list': imgbtnindex_list,
+            'navlinkid_list': navlinkid_list,
         }
         return render(request, 'pleniapp/index_admin.html', context)
     else:
