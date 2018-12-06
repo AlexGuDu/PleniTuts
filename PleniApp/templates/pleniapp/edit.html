@@ -1,0 +1,120 @@
+{% extends 'pleniapp/base_admin.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<div style="margin-top: 6rem;">
+
+</div>
+<div class="container-fluid" >
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card" id="createcard">
+        <div class="card-body">
+          <h5 class="card-title" id="card_title">Editar Lección</h5>
+          <p class="card-text" id="card_paragraph"><!-- Lecture description --></p>
+          <form>
+            <div class="form-group">
+              <label>Titulo</label>
+              <input id="lecture_title"  class="form-control" placeholder="Ingrese el titulo.">
+
+            </div>
+            <div class="form-group">
+              <label>Descripción</label>
+              <textarea id="lecture_description" class="form-control"  placeholder="Ingrese descripción"></textarea>
+              <small class="form-text text-muted">Es recomendado mantener la descripción breve.</small>
+            </div>
+            <div class="form-group">
+              <label>Seleccionar Unidad de Aprendizaje</label>
+              <select id="lecture_unit" class="form-control">
+                <option value="1">Basica 1</option>
+                <option value="2">Basica 2</option>
+                <option value="3">Basica 3</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Seleccionar Tipo de Tema</label>
+              <select id="lecture_type" class="form-control">
+                <option value="1">Correo Gmail</option>
+                <option value="2">Explorador de Internet</option>
+                <option value="3">Windows</option>
+                <option value="4">Facebook</option>
+                <option value="5">Youtube</option>
+                <option value="6">Microsoft Office</option>
+                <option value="7">Equipo de Computo</option>
+                <option value="8">Juegos</option>
+                <option value="9">Paint</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>URL Video</label>
+              <input id="lecture_videourl" class="form-control" placeholder="https://www.youtube.com/watch?v=tgbNymZ7vqY">
+              <small class="form-text text-muted">Es recomendado solo proveer enlaces de Youtube.</small>
+              <div id="missingstuff" text-align="center" hidden>
+                <br><h2 class="text-danger"><div class="fas fa-exclamation-triangle"></div> Es necesario llenar todos los campos. </h2>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div> <br> <br>
+
+<div id="bigbuttoncontainer">
+    <a id="crearleccion" href="asda" class="bttn bttn--white bttn--animated">Guardar Cambios</a>
+</div>
+
+
+
+
+
+  <script type="text/javascript">
+    var lec_title = document.getElementById('lecture_title');
+    var lec_description = document.getElementById('lecture_description');
+    var lec_unit = document.getElementById('lecture_unit');
+    var lec_type = document.getElementById('lecture_type');
+    var lec_videourl = document.getElementById('lecture_videourl');
+
+    window.onload = function(){
+      lec_title.value = "{{lecture.title}}"
+      lec_description.value = "{{lecture.description}}"
+      lec_unit.value = {{lecture.unit_index}}
+      lec_type.value = {{lecture.lecture_type_index}}
+      lec_videourl.value = "https://www.youtube.com/watch?v=" + "{{lecture.videourl}}"
+    }
+
+    $(document).on('click', '#crearleccion', function(e){
+      e.preventDefault();
+      if (lec_title.value == "" || lec_description.value == "" || lec_videourl.value =="") {
+        document.getElementById("missingstuff").hidden = false;
+      }
+      else{
+
+        var yturl = $('#lecture_videourl').val();
+        var sliced_yturl = yturl.slice(-11)
+
+        $.ajax({
+          type: 'POST',
+          url: '{% url 'create_lecture' %}',
+          data:{
+            title: $('#lecture_title').val(),
+            description: $('#lecture_description').val(),
+            unit: $('#lecture_unit').val(),
+            type: $('#lecture_type').val(),
+            videourl: sliced_yturl,
+          },
+          success: function(){
+            window.location.href="{% url 'index_admin' %}";
+          }
+        })
+      }
+
+
+
+
+    });
+
+  </script>
+
+{% endblock %}

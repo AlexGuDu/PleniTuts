@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from .models import Lecture, User, Comment
 from .forms import UserSignInForm, CreateLectureForm
-
+import json
 
 
 # REGULAR USER STARTS #
@@ -282,7 +282,7 @@ def details_admin(request, id):
 
         return render(request, 'pleniapp/details_admin.html', context)
     else:
-        return redirect('sign_in')
+        return redirect('sign_in_admin')
 
 def create(request):
     if sign_in_valid_admin(request):
@@ -292,7 +292,7 @@ def create(request):
 
         return render(request, 'pleniapp/create.html', context)
     else:
-        return redirect('sign_in')
+        return redirect('sign_in_admin')
 
 def create_lecture(request):
     if request.method == 'POST':
@@ -315,6 +315,18 @@ def create_lecture(request):
             lecture_index_number = new_lec_index_num
         )
         return HttpResponse('')
+
+def edit(request, id):
+    if sign_in_valid_admin(request):
+        lecture = Lecture.objects.get(id=id)
+        context = {
+            'user': request.session['username_admin'],
+            'lecture': lecture
+        }
+        return render(request, 'pleniapp/edit.html', context)
+    else:
+        return redirect('sign_in_admin')
+
 
 def user_submit_comment(request):
     if request.method == 'POST':

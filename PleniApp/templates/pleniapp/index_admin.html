@@ -73,6 +73,7 @@
     var card_title = document.getElementById('card_title');
     var card_paragraph = document.getElementById('card_paragraph');
     var btn_enter_lecture = document.getElementById('btn_enter_lecture');
+    var btn_edit_lecture = document.getElementById('btn_edit_lecture');
     var all_navlinks = document.querySelectorAll(".cleanup-c");
 
     window.onload= function(){
@@ -81,6 +82,7 @@
       card_header.innerHTML = "Unidad " + "{{ lecture.0.unit_index }}" + " - Lección " + "{{ lectures.0.lecture_index_number }}";
       card_paragraph.innerHTML = "{{ lectures.0.description }}";
       btn_enter_lecture.href = "{% url 'details_admin' id=lectures.0.id %}";
+      btn_edit_lecture.href = "{% url 'edit' id=lectures.0.id %}";
     }
 
     function clean_navlinks(){
@@ -93,13 +95,14 @@
       clean_navlinks()
       p_navlinkid.classList.add("active");
       var lecture_ind_num = p_navlinkid.id;
-
       {% for lecture in lectures %}
         if( "{{lecture.navlinkid }}" == lecture_ind_num ){
           card_title.innerHTML = "{{ lecture.title }}";
           card_header.innerHTML = "Unidad " + "{{ lecture.unit_index }}" + " - Leccion " + "{{ lecture.lecture_index_number }}"
           card_paragraph.innerHTML = "{{ lecture.description }}"
           btn_enter_lecture.href = "{% url 'details_admin' id=lecture.id %}";
+          btn_edit_lecture.href = "{% url 'edit' id=lecture.id %}";
+
         }
       {% endfor %}
     }
