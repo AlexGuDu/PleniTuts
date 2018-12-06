@@ -327,6 +327,27 @@ def edit(request, id):
     else:
         return redirect('sign_in_admin')
 
+def edit_lecture(request, id):
+    if sign_in_valid_admin(request):
+        if request.method == 'POST':
+            lec_title = request.POST['title']
+            lec_description = request.POST['description']
+            lec_unit = request.POST['unit']
+            lec_type = request.POST['type']
+            lec_videourl = request.POST['videourl']
+
+            lecture = Lecture.objects.get(id=id)
+            lecture.title = lec_title
+            lecture.description = lec_description
+            lecture.unit_index = lec_unit
+            lecture.lecture_type_index = lec_type
+            lecture.videourl = lec_videourl
+
+            lecture.save()
+            return redirect('index_admin')
+    else:
+        return redirect('sign_in_admin')
+
 
 def user_submit_comment(request):
     if request.method == 'POST':

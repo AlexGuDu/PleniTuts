@@ -62,11 +62,8 @@
 </div> <br> <br>
 
 <div id="bigbuttoncontainer">
-    <a id="crearleccion" href="asda" class="bttn bttn--white bttn--animated">Guardar Cambios</a>
+    <a id="crearleccion" href class="bttn bttn--white bttn--animated">Guardar Cambios</a>
 </div>
-
-
-
 
 
   <script type="text/javascript">
@@ -90,13 +87,12 @@
         document.getElementById("missingstuff").hidden = false;
       }
       else{
-
         var yturl = $('#lecture_videourl').val();
         var sliced_yturl = yturl.slice(-11)
 
         $.ajax({
           type: 'POST',
-          url: '{% url 'create_lecture' %}',
+          url: '{% url 'edit_lecture' id=lecture.id %}',
           data:{
             title: $('#lecture_title').val(),
             description: $('#lecture_description').val(),
