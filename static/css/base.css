@@ -112,7 +112,7 @@ body{
  .details-buttons{
    width: 100%;
    font-size: 1.2rem;
-   box-shadow: 0 0.5rem 0.5rem rgba(50,50,50,0.25);
+   box-shadow: 0 0.5rem 0.5rem rgba(50,50,50,0.26);
  }
 
  .details-buttons-left{

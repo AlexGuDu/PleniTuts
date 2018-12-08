@@ -357,12 +357,9 @@ def user_submit_comment(request):
 
         comment_now = Comment.objects.create(
             body = comment,
-            lecture_id = 5,
-            user_id = 2
+            lecture_id = lecture_id,
+            user_id = user_id.id
         )
         comment_now.username = User.objects.get(id=comment_now.user_id).username
-        data = {
-            'username': 'hey',
-            'body': 'you'
-        }
-        return JsonResponse(data)
+
+        return HttpResponse('')
